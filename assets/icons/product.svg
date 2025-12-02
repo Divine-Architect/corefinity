@@ -1,0 +1,6 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- tag body -->
+  <path d="M28 36V68L60 100L100 60L68 28H36C31.6 28 28 31.6 28 36Z" fill="#5BCBFF"/>
+  <!-- tag hole -->
+  <circle cx="44" cy="44" r="4" fill="white"/>
+</svg>

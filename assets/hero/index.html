@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Corefinity — Fully Managed Magento & Laravel Hosting</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="cf-page">
+      <!-- ================= COREFINITY HEADER STACK ================= -->
+      <header class="cf-header-global" role="banner">
+        <!-- ================= ANNOUNCEMENT BAR (TWO TIERS) ================= -->
+        <div class="cf-announce">
+          <!-- Tier 1 -->
+          <div class="cf-announce-tier1">
+            <div class="cf-announce-inner cf-announce-tier1-inner">
+              <p class="cf-announce-tier1-text">
+                We’re officially <strong>SOC 2 Type II Compliant</strong>
+                <a href="#" class="cf-announce-link">Learn more →</a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Tier 2 -->
+          <div class="cf-announce-tier2">
+            <div class="cf-announce-inner cf-announce-tier2-inner">
+              <div class="cf-announce-tier2-left">
+                <span class="cf-announce-gift" aria-hidden="true">
+                  <img
+                    src="assets/icons/lightning.svg"
+                    alt=""
+                    class="cf-announce-gift-icon"
+                  />
+                </span>
+                <span class="cf-announce-tier2-text">
+                  You’ve unlocked a referral bonus! Sign up today and you’ll
+                  receive a random credit bonus between $5 and $500.
+                </span>
+              </div>
+
+              <button class="cf-announce-tier2-cta" type="button">
+                Claim Your Bonus
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= NAVBAR ================= -->
+        <div class="cf-header" role="navigation" aria-label="Main">
+          <div class="cf-nav">
+            <!-- LEFT: LOGO -->
+            <div class="cf-nav-left">
+              <a href="/" class="cf-logo">
+                <img
+                  src="assets/logo/logo-corefinity.svg"
+                  alt="Corefinity"
+                  class="cf-logo-img"
+                />
+              </a>
+            </div>
+
+            <!-- CENTER: FLOATING PILL -->
+            <div class="cf-nav-center">
+              <nav class="cf-nav-pill" aria-label="Primary">
+                <!-- PRODUCT (MEGA) -->
+                <div class="cf-nav-item-wrap">
+                  <button
+                    class="cf-nav-trigger"
+                    type="button"
+                    data-menu="product"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <span class="cf-nav-label">Product</span>
+                    <span class="cf-nav-arrow" aria-hidden="true"></span>
+                  </button>
+                </div>
+
+                <!-- USE CASES (MEGA) -->
+                <div class="cf-nav-item-wrap">
+                  <button
+                    class="cf-nav-trigger"
+                    type="button"
+                    data-menu="usecases"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <span class="cf-nav-label">Use Cases</span>
+                    <span class="cf-nav-arrow" aria-hidden="true"></span>
+                  </button>
+                </div>
+
+                <!-- RESOURCES (MEGA) -->
+                <div class="cf-nav-item-wrap">
+                  <button
+                    class="cf-nav-trigger"
+                    type="button"
+                    data-menu="resources"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <span class="cf-nav-label">Resources</span>
+                    <span class="cf-nav-arrow" aria-hidden="true"></span>
+                  </button>
+                </div>
+
+                <!-- COMPANY (MEGA) -->
+                <div class="cf-nav-item-wrap">
+                  <button
+                    class="cf-nav-trigger"
+                    type="button"
+                    data-menu="company"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <span class="cf-nav-label">Company</span>
+                    <span class="cf-nav-arrow" aria-hidden="true"></span>
+                  </button>
+                </div>
+
+                <!-- SIMPLE LINKS -->
+                <a href="#" class="cf-nav-item-simple">
+                  <span class="cf-nav-label">Docs</span>
+                </a>
+                <a href="#" class="cf-nav-item-simple">
+                  <span class="cf-nav-label">Pricing</span>
+                </a>
+              </nav>
+            </div>
+
+            <!-- RIGHT: SIGN IN / CONTACT / CTA -->
+            <div class="cf-nav-right">
+              <a href="#" class="cf-nav-link-ghost">Sign in</a>
+              <a href="#" class="cf-nav-link-ghost">Contact sales</a>
+              <button class="cf-nav-cta" type="button">Get Started</button>
+            </div>
+
+            <!-- MOBILE TOGGLE -->
+            <button
+              class="cf-nav-toggle"
+              id="cf-nav-toggle"
+              type="button"
+              aria-label="Open navigation"
+              aria-expanded="false"
+            >
+              <span class="cf-nav-toggle-line"></span>
+              <span class="cf-nav-toggle-line"></span>
+            </button>
+          </div>
+
+          <!-- ============ MEGA MENU PANELS (DESKTOP) ============ -->
+          <div class="cf-mega-container" aria-label="Primary mega menu">
+            <!-- PRODUCT PANEL -->
+            <section
+              class="cf-mega-panel"
+              data-menu-panel="product"
+              aria-label="Product menu"
+            >
+              <div class="cf-mega-inner">
+                <div class="cf-mega-col">
+                  <h4 class="cf-mega-heading">Features</h4>
+                  <a href="#" class="cf-mega-link">Inference</a>
+                  <a href="#" class="cf-mega-link">Fine-Tuning</a>
+                  <a href="#" class="cf-mega-link">Batch Jobs</a>
+                  <a href="#" class="cf-mega-link">Observability</a>
+                </div>
+                <div class="cf-mega-col">
+                  <h4 class="cf-mega-heading">Compute</h4>
+                  <a href="#" class="cf-mega-link">On-Demand Clusters</a>
+                  <a href="#" class="cf-mega-link">Autoscaling</a>
+                  <a href="#" class="cf-mega-link">Dedicated Nodes</a>
+                </div>
+                <aside class="cf-mega-highlight">
+                  <h3>Enterprise Hosting</h3>
+                  <p>
+                    Rock-solid infrastructure engineered for scale and
+                    reliability.
+                  </p>
+                </aside>
+              </div>
+            </section>
+
+            <!-- USE CASES PANEL -->
+            <section
+              class="cf-mega-panel"
+              data-menu-panel="usecases"
+              aria-label="Use cases menu"
+            >
+              <div class="cf-mega-inner">
+                <div class="cf-mega-col">
+                  <h4 class="cf-mega-heading">eCommerce</h4>
+                  <a href="#" class="cf-mega-link">Magento Stores</a>
+                  <a href="#" class="cf-mega-link">WooCommerce Retail</a>
+                  <a href="#" class="cf-mega-link">High-Traffic Campaigns</a>
+                </div>
+                <div class="cf-mega-col">
+                  <h4 class="cf-mega-heading">Agencies</h4>
+                  <a href="#" class="cf-mega-link">Agency Partner Program</a>
+                  <a href="#" class="cf-mega-link">White-Label Hosting</a>
+                </div>
+                <aside class="cf-mega-highlight">
+                  <h3>Solutions for Growth</h3>
+                  <p>
+                    Purpose-built workflows for brands, agencies, and SaaS
+                    teams.
+                  </p>
+                </aside>
+              </div>
+            </section>
+
+            <!-- RESOURCES PANEL -->
+            <section
+              class="cf-mega-panel"
+              data-menu-panel="resources"
+              aria-label="Resources menu"
+            >
+              <div class="cf-mega-inner">
+                <div class="cf-mega-col">
+                  <h4 class="cf-mega-heading">Content</h4>
+                  <a href="#" class="cf-mega-link">Blog</a>
+                  <a href="#" class="cf-mega-link">Case Studies</a>
+                  <a href="#" class="cf-mega-link">Guides</a>
+                </div>
+                <div class="cf-mega-col">
+                  <h4 class="cf-mega-heading">Technical</h4>
+                  <a href="#" class="cf-mega-link">API Documentation</a>
+                  <a href="#" class="cf-mega-link">System Status</a>
+                  <a href="#" class="cf-mega-link">Support Center</a>
+                </div>
+                <aside class="cf-mega-highlight">
+                  <h3>Knowledge Hub</h3>
+                  <p>
+                    Everything you need to launch, monitor, and scale
+                    successfully.
+                  </p>
+                </aside>
+              </div>
+            </section>
+
+            <!-- COMPANY PANEL -->
+            <section
+              class="cf-mega-panel"
+              data-menu-panel="company"
+              aria-label="Company menu"
+            >
+              <div class="cf-mega-inner">
+                <div class="cf-mega-col">
+                  <h4 class="cf-mega-heading">Company</h4>
+                  <a href="#" class="cf-mega-link">About Us</a>
+                  <a href="#" class="cf-mega-link">Team</a>
+                  <a href="#" class="cf-mega-link">Careers</a>
+                </div>
+                <aside class="cf-mega-highlight">
+                  <h3>About Corefinity</h3>
+                  <p>Trusted managed hosting for modern digital businesses.</p>
+                </aside>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <!-- ============ MOBILE MENU DRAWER ============ -->
+        <div
+          class="cf-mobile-menu"
+          id="cf-mobile-menu"
+          aria-hidden="true"
+        >
+          <div class="cf-mobile-menu-inner">
+            <button
+              class="cf-mobile-close"
+              id="cf-mobile-close"
+              type="button"
+              aria-label="Close navigation"
+            >
+              ×
+            </button>
+
+            <nav class="cf-mobile-nav" aria-label="Mobile main">
+              <div class="cf-mobile-group">
+                <h4>Product</h4>
+                <a href="#">Inference</a>
+                <a href="#">Fine-Tuning</a>
+                <a href="#">Batch Jobs</a>
+                <a href="#">Observability</a>
+              </div>
+              <div class="cf-mobile-group">
+                <h4>Use Cases</h4>
+                <a href="#">Magento Stores</a>
+                <a href="#">WooCommerce Retail</a>
+                <a href="#">Agencies</a>
+              </div>
+              <div class="cf-mobile-group">
+                <h4>Resources</h4>
+                <a href="#">Blog</a>
+                <a href="#">Case Studies</a>
+                <a href="#">API Docs</a>
+              </div>
+              <div class="cf-mobile-group">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Team</a>
+                <a href="#">Careers</a>
+              </div>
+
+              <div class="cf-mobile-actions">
+                <a href="#" class="cf-mobile-link">Sign in</a>
+                <a href="#" class="cf-mobile-link">Contact sales</a>
+                <button class="cf-mobile-cta" type="button">
+                  Get Started
+                </button>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <!-- ================= END HEADER STACK ================= -->
+
+      <!-- ================= HERO + BRANDS ================= -->
+      <main class="cf-main">
+        <section class="cf-hero">
+          <div class="cf-hero-inner">
+            <!-- Left column: copy -->
+            <div class="cf-hero-left">
+              <div class="cf-hero-meta-row">
+                <span class="cf-hero-meta-dot" aria-hidden="true"></span>
+                <span class="cf-hero-meta-text">
+                  Fully managed Magento &amp; Laravel hosting
+                </span>
+              </div>
+
+              <h1 class="cf-hero-title">
+                Fast, secure hosting<br />
+                built for serious commerce.
+              </h1>
+
+              <p class="cf-hero-subtitle">
+                Corefinity keeps your stores and applications fast, resilient
+                and fully-managed, so your team can focus on shipping
+                features—not fighting servers.
+              </p>
+
+              <form class="cf-hero-form" novalidate>
+                <div class="cf-hero-form-row">
+                  <input
+                    type="email"
+                    class="cf-hero-input"
+                    placeholder="What’s your work email?"
+                    aria-label="Enter your work email"
+                  />
+                  <button type="submit" class="cf-hero-cta">
+                    Get started in minutes
+                  </button>
+                </div>
+                <p class="cf-hero-meta-note">
+                  No credit card required · Free migration for qualifying stacks
+                </p>
+              </form>
+            </div>
+
+            <!-- Right column: holographic orb video -->
+            <div class="cf-hero-right">
+              <div class="cf-hero-orb-frame">
+                <div class="cf-hero-orb-glow"></div>
+                <div class="cf-hero-orb-holo" id="cf-hero-orb">
+                  <div class="cf-hero-orb-particles" aria-hidden="true"></div>
+                  <video
+                    class="cf-hero-orb-video"
+                    src="assets/hero/corefinity-orb.mp4"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                  ></video>
+                  <div class="cf-hero-orb-grid" aria-hidden="true"></div>
+                  <div class="cf-hero-orb-tint" aria-hidden="true"></div>
+                  <div class="cf-hero-orb-spec" aria-hidden="true"></div>
+                  <div class="cf-hero-orb-orbit" aria-hidden="true">
+                    <span class="cf-hero-orbit-dot"></span>
+                  </div>
+                  <div class="cf-hero-orb-ripple" aria-hidden="true"></div>
+                  <div class="cf-hero-orb-glass" aria-hidden="true"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= BRAND SLIDER ================= -->
+        <section class="cf-partner-shield" aria-label="Cloud providers and supported platforms">
+          <div class="cf-partner-card">
+            <div class="cf-partner-row">
+              <div class="cf-partner-label">Cloud providers</div>
+              <div class="cf-partner-logos">
+                <img src="assets/providers/gcp-big.svg" alt="Google Cloud" />
+                <img src="assets/providers/aws-big.svg" alt="Amazon Web Services" />
+                <img src="assets/providers/azure-big.svg" alt="Microsoft Azure" />
+              </div>
+            </div>
+            <hr class="cf-partner-divider" aria-hidden="true" />
+            <div class="cf-partner-row">
+              <div class="cf-partner-label">Supported platforms</div>
+              <div class="cf-partner-logos">
+                <img src="assets/platforms/magento.svg" alt="Magento" />
+                <img src="assets/platforms/shopware.svg" alt="Shopware" />
+                <img src="assets/platforms/wordpress.svg" alt="WordPress" />
+                <img src="assets/platforms/oro.svg" alt="ORO Commerce" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cf-brands">
+          <p class="cf-brands-caption">
+            Trusted by leading UK retailers, agencies and brands
+          </p>
+
+          <div class="cf-brands-marquee">
+            <div class="cf-brands-track">
+              <img src="assets/brands/Angling Direct.png" alt="Angling Direct" />
+              <img src="assets/brands/ribblecycles.png" alt="Ribble Cycles" />
+              <img src="assets/brands/TFL-logo.webp" alt="Transport for London" />
+              <img src="assets/brands/lcfc-logo.webp" alt="Leicester City FC" />
+              <img src="assets/brands/Mercedes SW.svg" alt="Mercedes SW" />
+              <img src="assets/brands/jml.svg" alt="JML" />
+              <img src="assets/brands/T.H. Baker.svg" alt="T.H. Baker" />
+              <img src="assets/brands/my1styears copy.svg" alt="My 1st Years" />
+              <img src="assets/brands/petertyson.svg" alt="Peter Tyson" />
+              <img src="assets/brands/ego.svg" alt="EGO" />
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="js/header.js"></script>
+  </body>
+</html>

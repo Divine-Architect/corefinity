@@ -1,0 +1,1000 @@
+# COREFINITY_HEADER_HERO_BRANDS_v1.md  
+
+Single source of truth for the top of the Corefinity homepage:  
+
+- Tiered announcement bar  
+- Premium floating navbar with hover mega menus  
+- Orb-based hero with email CTA  
+- Auto-scrolling brand slider  
+- Shared color system + typography  
+
+Copy the files exactly as below.
+
+---
+
+## 1. FILE STRUCTURE
+
+```text
+Corefinity/
+├─ index.html
+└─ css/
+   └─ styles.css
+└─ assets/
+   ├─ logo/
+   │   └─ logo-corefinity.svg
+   ├─ hero/
+   │   └─ corefinity-orb.mp4      (426×336 video)
+   └─ brands/
+       ├─ Angling Direct.png
+       ├─ ribblecycles.png
+       ├─ TFL-logo.webp
+       ├─ lcfc-logo.webp
+       ├─ Mercedes SW.svg
+       ├─ jml.svg
+       ├─ T.H. Baker.svg
+       ├─ my1styears copy.svg
+       ├─ petertyson.svg
+       └─ ego.svg
+2. index.html
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Corefinity — Fully Managed Magento & Laravel Hosting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="cf-page">
+
+      <!-- ================= HEADER SHELL ================= -->
+      <header class="cf-shell">
+
+        <!-- ===== Tiered Announcement Bar ===== -->
+        <div class="cf-announcement">
+          <!-- Tier 1: Status / trust -->
+          <div class="cf-annc-tier cf-annc-tier-1">
+            <div class="cf-annc-inner">
+              <div class="cf-annc-left">
+                <span class="cf-pill cf-pill-solid">99.99% uptime</span>
+                <span class="cf-annc-text">
+                  PCI-compliant, UK-based infrastructure for serious commerce.
+                </span>
+              </div>
+              <div class="cf-annc-right">
+                <a href="#" class="cf-link-inline">View status page ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tier 2: Promo / offer -->
+          <div class="cf-annc-tier cf-annc-tier-2">
+            <div class="cf-annc-inner">
+              <div class="cf-annc-left">
+                <span class="cf-icon-lightning" aria-hidden="true">⚡</span>
+                <span class="cf-annc-text-strong">
+                  Free white-glove migration
+                </span>
+                <span class="cf-annc-text">
+                  Move your stack to Corefinity in under 7 days.
+                </span>
+              </div>
+              <div class="cf-annc-right">
+                <a href="#" class="cf-link-pill">Book migration consult</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== Navbar ===== -->
+        <div class="cf-header" role="navigation" aria-label="Main">
+          <div class="cf-header-inner">
+
+            <!-- Logo -->
+            <a href="/" class="cf-logo">
+              <img
+                src="assets/logo/logo-corefinity.svg"
+                alt="Corefinity"
+                class="cf-logo-img"
+              />
+            </a>
+
+            <!-- Center nav links -->
+            <nav class="cf-nav">
+              <ul class="cf-nav-list">
+                <!-- Product mega -->
+                <li class="cf-nav-item cf-nav-item--has-mega">
+                  <span class="cf-nav-link">
+                    Product
+                    <span class="cf-nav-caret" aria-hidden="true">▾</span>
+                  </span>
+                  <div class="cf-mega">
+                    <div class="cf-mega-inner">
+                      <div class="cf-mega-col">
+                        <h4 class="cf-mega-heading">Managed Platforms</h4>
+                        <a href="#" class="cf-mega-link">
+                          Laravel Cloud
+                          <span>Optimised PHP hosting with zero-devops scaling.</span>
+                        </a>
+                        <a href="#" class="cf-mega-link">
+                          Magento Cloud
+                          <span>High-availability Magento with tuned caching.</span>
+                        </a>
+                      </div>
+                      <div class="cf-mega-col">
+                        <h4 class="cf-mega-heading">Reliability</h4>
+                        <a href="#" class="cf-mega-link">
+                          24/7 UK Support
+                          <span>Real engineers, not ticket robots.</span>
+                        </a>
+                        <a href="#" class="cf-mega-link">
+                          Observability
+                          <span>Dashboards, alerts, and performance insights.</span>
+                        </a>
+                      </div>
+                      <div class="cf-mega-col">
+                        <h4 class="cf-mega-heading">Security</h4>
+                        <a href="#" class="cf-mega-link">
+                          Compliance
+                          <span>PCI-ready foundation for payments.</span>
+                        </a>
+                        <a href="#" class="cf-mega-link">
+                          Backups
+                          <span>Encrypted, multi-zone snapshot strategy.</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                <!-- Use cases -->
+                <li class="cf-nav-item cf-nav-item--has-mega">
+                  <span class="cf-nav-link">
+                    Use cases
+                    <span class="cf-nav-caret" aria-hidden="true">▾</span>
+                  </span>
+                  <div class="cf-mega">
+                    <div class="cf-mega-inner">
+                      <div class="cf-mega-col">
+                        <h4 class="cf-mega-heading">Who we host</h4>
+                        <a href="#" class="cf-mega-link">
+                          Retail &amp; D2C
+                          <span>High-traffic campaigns without store downtime.</span>
+                        </a>
+                        <a href="#" class="cf-mega-link">
+                          Agencies
+                          <span>Consolidate client sites into one managed platform.</span>
+                        </a>
+                      </div>
+                      <div class="cf-mega-col">
+                        <h4 class="cf-mega-heading">Workloads</h4>
+                        <a href="#" class="cf-mega-link">
+                          Flash-sale ready
+                          <span>Prepared for traffic spikes and TV campaigns.</span>
+                        </a>
+                        <a href="#" class="cf-mega-link">
+                          International stores
+                          <span>Global edge, CDN and caching built in.</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                <!-- Simple links -->
+                <li class="cf-nav-item">
+                  <a href="#" class="cf-nav-link">Pricing</a>
+                </li>
+                <li class="cf-nav-item">
+                  <a href="#" class="cf-nav-link">Docs</a>
+                </li>
+                <li class="cf-nav-item">
+                  <a href="#" class="cf-nav-link">Support</a>
+                </li>
+              </ul>
+            </nav>
+
+            <!-- Right actions -->
+            <div class="cf-nav-actions">
+              <a href="#" class="cf-link-inline">Sign in</a>
+              <a href="#" class="cf-btn cf-btn-outline">Contact sales</a>
+              <a href="#" class="cf-btn cf-btn-primary">Get started</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- ================= HERO ================= -->
+      <main class="cf-main">
+        <section class="cf-hero">
+          <div class="cf-hero-inner">
+
+            <!-- Left column: copy -->
+            <div class="cf-hero-left">
+              <div class="cf-hero-meta-row">
+                <span class="cf-hero-meta-dot" aria-hidden="true"></span>
+                <span class="cf-hero-meta-text">
+                  Fully managed Magento &amp; Laravel hosting
+                </span>
+              </div>
+
+              <h1 class="cf-hero-title">
+                Fast, secure hosting<br />
+                built for serious commerce.
+              </h1>
+
+              <p class="cf-hero-subtitle">
+                Corefinity keeps your stores and applications fast, resilient and
+                fully-managed, so your team can focus on shipping features—not
+                fighting servers.
+              </p>
+
+              <form class="cf-hero-form" novalidate>
+                <div class="cf-hero-form-row">
+                  <input
+                    type="email"
+                    class="cf-hero-input"
+                    placeholder="What’s your work email?"
+                    aria-label="Enter your work email"
+                  />
+                  <button type="submit" class="cf-hero-cta">
+                    Get started in minutes
+                  </button>
+                </div>
+                <p class="cf-hero-meta-note">
+                  No credit card required · Free migration for qualifying stacks
+                </p>
+              </form>
+            </div>
+
+            <!-- Right column: orb video -->
+            <div class="cf-hero-right">
+              <div class="cf-hero-orb-frame">
+                <div class="cf-hero-orb-glow"></div>
+                <video
+                  class="cf-hero-orb-video"
+                  src="assets/hero/corefinity-orb.mp4"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                ></video>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= BRAND SLIDER ================= -->
+        <section class="cf-brands">
+          <p class="cf-brands-caption">
+            Trusted by leading UK retailers, agencies and brands
+          </p>
+
+          <div class="cf-brands-marquee">
+            <div class="cf-brands-track">
+              <img src="assets/brands/Angling Direct.png" alt="Angling Direct" />
+              <img src="assets/brands/ribblecycles.png" alt="Ribble Cycles" />
+              <img src="assets/brands/TFL-logo.webp" alt="Transport for London" />
+              <img src="assets/brands/lcfc-logo.webp" alt="Leicester City FC" />
+              <img src="assets/brands/Mercedes SW.svg" alt="Mercedes SW" />
+              <img src="assets/brands/jml.svg" alt="JML" />
+              <img src="assets/brands/T.H. Baker.svg" alt="T.H. Baker" />
+              <img src="assets/brands/my1styears copy.svg" alt="My 1st Years" />
+              <img src="assets/brands/petertyson.svg" alt="Peter Tyson" />
+              <img src="assets/brands/ego.svg" alt="EGO" />
+
+              <!-- repeat for seamless loop -->
+              <img src="assets/brands/Angling Direct.png" alt="" />
+              <img src="assets/brands/ribblecycles.png" alt="" />
+              <img src="assets/brands/TFL-logo.webp" alt="" />
+              <img src="assets/brands/lcfc-logo.webp" alt="" />
+              <img src="assets/brands/Mercedes SW.svg" alt="" />
+              <img src="assets/brands/jml.svg" alt="" />
+              <img src="assets/brands/T.H. Baker.svg" alt="" />
+              <img src="assets/brands/my1styears copy.svg" alt="" />
+              <img src="assets/brands/petertyson.svg" alt="" />
+              <img src="assets/brands/ego.svg" alt="" />
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
+3. css/styles.css
+css
+Copy code
+/* ================= COREFINITY GLOBAL THEME ================= */
+
+:root {
+  --primary-blue: #0094E6;
+  --primary-blue-light: #36B7FF;
+  --primary-blue-dark: #005A8A;
+
+  --primary-orange: #FF6B35;
+  --primary-orange-light: #FF8A5A;
+  --primary-orange-dark: #C44E24;
+
+  --bg-0: #05070A;
+  --bg-1: #0A0F17;
+  --bg-2: #0D1624;
+  --bg-3: #111C2C;
+  --bg-4: #152234;
+
+  --surface-1: #1A2D44;
+  --surface-2: #1E3550;
+
+  --text-primary: #F2F7FA;
+  --text-secondary: #C6D4E1;
+  --text-tertiary: #9AA9BA;
+  --text-muted: #6F8196;
+  --text-inverse: #0A0F17;
+  --text-accent-blue: #36B7FF;
+  --text-accent-orange: #FF8A5A;
+
+  --border-light: #27415E;
+  --border-mid: #1E3550;
+  --border-heavy: #152234;
+
+  --hover-bg: #1A2D44;
+  --hover-text: #E9F4FF;
+  --hover-border: #36B7FF;
+
+  --active-bg: #244062;
+  --focus-outline: #36B7FF;
+
+  --disabled-bg: #0F1A27;
+  --disabled-text: #6F8196;
+
+  --cta-gradient-start: #0094E6;
+  --cta-gradient-end: #36B7FF;
+  --cta-hover-start: #0AA2FF;
+  --cta-hover-end: #5BC5FF;
+  --cta-pressed: #005A8A;
+  --cta-shadow: rgba(0,148,230,0.35);
+
+  --scroll-fade-start: rgba(10,15,23,0);
+  --scroll-fade-end: #0A0F17;
+}
+
+/* ================= BASE ================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: radial-gradient(
+      circle at 10% 0%,
+      rgba(0, 148, 230, 0.16),
+      transparent 55%
+    ),
+    linear-gradient(180deg, var(--bg-1), var(--bg-2));
+  color: var(--text-primary);
+}
+
+.cf-page {
+  min-height: 100vh;
+}
+
+/* Links & buttons */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cf-link-inline {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.cf-link-inline:hover {
+  color: var(--text-accent-blue);
+}
+
+.cf-link-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(54, 183, 255, 0.4);
+  font-size: 13px;
+  color: var(--text-accent-blue);
+  background: rgba(10, 15, 23, 0.7);
+}
+
+.cf-link-pill:hover {
+  border-color: var(--primary-blue-light);
+}
+
+/* Generic pill */
+
+.cf-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cf-pill-solid {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 148, 230, 0.9),
+    rgba(54, 183, 255, 0.9)
+  );
+  color: #031018;
+}
+
+/* Buttons */
+
+.cf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0 18px;
+  height: 36px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.18s ease, border-color 0.18s ease,
+    box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.cf-btn-primary {
+  background-image: linear-gradient(
+    135deg,
+    var(--cta-gradient-start),
+    var(--cta-gradient-end)
+  );
+  color: #ffffff;
+  box-shadow: 0 8px 22px rgba(0, 148, 230, 0.4);
+}
+
+.cf-btn-primary:hover {
+  background-image: linear-gradient(
+    135deg,
+    var(--cta-hover-start),
+    var(--cta-hover-end)
+  );
+  transform: translateY(-1px);
+}
+
+.cf-btn-primary:active {
+  background-color: var(--cta-pressed);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+  transform: translateY(0);
+}
+
+.cf-btn-outline {
+  background: transparent;
+  border-color: var(--border-mid);
+  color: var(--text-secondary);
+}
+
+.cf-btn-outline:hover {
+  background: rgba(21, 34, 52, 0.9);
+  border-color: var(--hover-border);
+}
+
+/* ================= ANNOUNCEMENT BAR ================= */
+
+.cf-shell {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: linear-gradient(180deg, var(--bg-1), rgba(10, 15, 23, 0.96));
+  backdrop-filter: blur(18px);
+}
+
+.cf-announcement {
+  border-bottom: 1px solid rgba(21, 34, 52, 0.9);
+}
+
+.cf-annc-tier {
+  padding: 6px 24px;
+}
+
+.cf-annc-tier-1 {
+  background: rgba(10, 15, 23, 0.98);
+}
+
+.cf-annc-tier-2 {
+  background: linear-gradient(
+    90deg,
+    rgba(13, 22, 36, 0.95),
+    rgba(0, 148, 230, 0.18)
+  );
+  border-top: 1px solid rgba(21, 34, 52, 0.95);
+}
+
+.cf-annc-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 13px;
+}
+
+.cf-annc-left,
+.cf-annc-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cf-annc-text {
+  color: var(--text-secondary);
+}
+
+.cf-annc-text-strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.cf-icon-lightning {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 138, 90, 0.85),
+    rgba(196, 78, 36, 0.4)
+  );
+  font-size: 12px;
+}
+
+/* ================= NAVBAR ================= */
+
+.cf-header {
+  border-bottom: 1px solid rgba(17, 28, 44, 0.9);
+}
+
+.cf-header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.cf-logo-img {
+  height: 26px;
+  display: block;
+}
+
+.cf-nav {
+  flex: 1;
+}
+
+.cf-nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.cf-nav-item {
+  position: relative;
+}
+
+.cf-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  padding: 6px 4px;
+  cursor: pointer;
+}
+
+.cf-nav-link:hover {
+  color: var(--text-primary);
+}
+
+.cf-nav-caret {
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+.cf-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Mega menu */
+
+.cf-mega {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 10px;
+  padding-top: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+
+.cf-nav-item--has-mega:hover > .cf-mega {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.cf-mega-inner {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  padding: 20px 22px;
+  min-width: 540px;
+  border-radius: 20px;
+  background: radial-gradient(
+      circle at 0% 0%,
+      rgba(0, 148, 230, 0.25),
+      transparent 55%
+    ),
+    var(--bg-4);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(39, 65, 94, 0.85);
+}
+
+.cf-mega-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cf-mega-heading {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin: 0 0 6px;
+}
+
+.cf-mega-link {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.cf-mega-link span {
+  display: block;
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
+.cf-mega-link:hover {
+  background: radial-gradient(
+      circle at 0% 0%,
+      rgba(54, 183, 255, 0.3),
+      transparent 60%
+    ),
+    rgba(17, 28, 44, 0.96);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.9);
+}
+
+/* ================= HERO ================= */
+
+.cf-main {
+  padding: 40px 24px 0;
+}
+
+.cf-hero {
+  padding: 32px 0 56px;
+}
+
+.cf-hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  column-gap: 48px;
+  align-items: center;
+}
+
+/* Left */
+
+.cf-hero-meta-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-accent-blue);
+}
+
+.cf-hero-meta-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #00fbff, #36b7ff);
+  box-shadow: 0 0 12px rgba(0, 251, 255, 0.7);
+}
+
+.cf-hero-title {
+  font-size: clamp(32px, 3.4vw, 40px);
+  line-height: 1.1;
+  margin: 0 0 16px;
+  color: var(--text-primary);
+  max-width: 520px;
+}
+
+.cf-hero-subtitle {
+  margin: 0 0 24px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  max-width: 480px;
+}
+
+.cf-hero-form {
+  max-width: 480px;
+}
+
+.cf-hero-form-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.cf-hero-input {
+  flex: 1;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid var(--border-mid);
+  background: rgba(5, 7, 10, 0.9);
+  padding: 0 16px;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.cf-hero-input::placeholder {
+  color: var(--text-muted);
+}
+
+.cf-hero-cta {
+  height: 46px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  background-image: linear-gradient(
+    135deg,
+    var(--cta-gradient-start),
+    var(--cta-gradient-end)
+  );
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.cf-hero-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.75);
+}
+
+.cf-hero-cta:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55);
+}
+
+.cf-hero-meta-note {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Right orb */
+
+.cf-hero-right {
+  display: flex;
+  justify-content: center;
+}
+
+.cf-hero-orb-frame {
+  position: relative;
+  width: 420px;
+  max-width: 100%;
+  aspect-ratio: 5 / 4; /* approx 426x336 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.cf-hero-orb-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.85);
+  filter: saturate(1.05);
+  animation: orb-float 9s ease-in-out infinite;
+}
+
+.cf-hero-orb-glow {
+  position: absolute;
+  inset: 18%;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 251, 255, 0.45),
+    rgba(0, 0, 0, 0)
+  );
+  filter: blur(18px);
+  opacity: 0.7;
+  z-index: -1;
+}
+
+@keyframes orb-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ================= BRAND SLIDER ================= */
+
+.cf-brands {
+  padding: 40px 0 48px;
+  text-align: center;
+}
+
+.cf-brands-caption {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  letter-spacing: 0.03em;
+}
+
+.cf-brands-marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+}
+
+.cf-brands-track {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  animation: brands-scroll 22s linear infinite;
+}
+
+.cf-brands-track img {
+  height: 36px;
+  opacity: 0.75;
+  filter: grayscale(1);
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+.cf-brands-track img:hover {
+  opacity: 1;
+  filter: grayscale(0);
+}
+
+@keyframes brands-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 960px) {
+  .cf-header-inner {
+    padding-inline: 16px;
+  }
+
+  .cf-nav-list {
+    display: none; /* simple desktop-only nav to keep code CSS-only */
+  }
+
+  .cf-nav-actions {
+    margin-left: auto;
+  }
+
+  .cf-hero-inner {
+    grid-template-columns: 1fr;
+    row-gap: 36px;
+    text-align: center;
+  }
+
+  .cf-hero-left {
+    order: 2;
+  }
+
+  .cf-hero-right {
+    order: 1;
+  }
+
+  .cf-hero-title,
+  .cf-hero-subtitle,
+  .cf-hero-form {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cf-hero-form-row {
+    flex-direction: column;
+  }
+
+  .cf-hero-cta {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .cf-annc-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cf-header-inner {
+    gap: 16px;
+  }
+
+  .cf-hero {
+    padding-top: 24px;
+  }
+
+  .cf-brands-track {
+    gap: 40px;
+  }
+
+  .cf-brands-track img {
+    height: 30px;
+  }
+}
+
+
+
+
+
+

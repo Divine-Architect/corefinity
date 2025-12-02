@@ -1,0 +1,10 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- card -->
+  <rect x="20" y="32" width="88" height="56" rx="8" fill="#5BCBFF"/>
+  <!-- card stripe -->
+  <rect x="20" y="44" width="88" height="10" fill="white" fill-opacity="0.2"/>
+  <!-- check circle -->
+  <circle cx="88" cy="88" r="16" fill="#5BCBFF"/>
+  <!-- check mark -->
+  <path d="M80 88L86 94L96 82" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- cart body -->
+  <path d="M20 28H32L40 80H92L100 44H44L42 36H106L96 88H38L30 36H20V28Z" fill="#5BCBFF"/>
+  <!-- wheels -->
+  <circle cx="46" cy="96" r="6" fill="#5BCBFF"/>
+  <circle cx="86" cy="96" r="6" fill="#5BCBFF"/>
+</svg>

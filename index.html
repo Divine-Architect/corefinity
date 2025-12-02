@@ -1,510 +1,796 @@
-<!DOCTYPE html>
+All <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Corefinity – Managed Hosting</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
     />
-    <link rel="stylesheet" href="assets/css/corefinity.css" />
+    <title>Corefinity — Fully Managed Magento & Laravel Hosting</title>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <a class="cf-skip-link" href="#main-content">Skip to content</a>
-    <header class="cf-header" role="banner">
-      <div class="cf-container">
-        <div class="cf-header-inner">
-          <a href="index.html" class="cf-header-logo">
-            <img
-              src="assets/img/logo-corefinity.svg"
-              alt="Corefinity"
-            />
-            <span class="cf-header-logo-text">Corefinity</span>
-          </a>
-          <nav
-            class="cf-header-nav"
-            id="cf-main-nav"
-            aria-label="Primary navigation"
-            role="menubar"
-          >
-            <button
-              class="cf-header-nav-link"
-              type="button"
-              id="cf-nav-why"
-              role="menuitem"
-              aria-haspopup="true"
-              aria-expanded="false"
-              aria-controls="cf-mega-why"
-              data-cf-mega-toggle="why"
-            >
-              Why Corefinity
-            </button>
-            <div
-              class="cf-mobile-panel"
-              data-cf-mobile-panel="why"
-              role="region"
-              aria-labelledby="cf-nav-why"
-              hidden
-            >
-              <a class="cf-mobile-link" href="#why-corefinity" role="menuitem">
-                Why Corefinity overview
-              </a>
-              <a class="cf-mobile-link" href="#why-performance" role="menuitem">
-                Performance &amp; SLAs
-              </a>
-              <a class="cf-mobile-link" href="#why-security" role="menuitem">
-                Security &amp; compliance
-              </a>
-              <a class="cf-mobile-link" href="#company" role="menuitem">
-                Company insights
+    <div class="cf-page">
+      <!-- ================= COREFINITY HEADER STACK ================= -->
+      <header class="cf-header-global" role="banner">
+        <!-- ================= ANNOUNCEMENT BAR (TWO TIERS) ================= -->
+        <div class="cf-announce">
+          <!-- Tier 1 -->
+          <div class="cf-announce-tier1">
+            <div class="cf-announce-inner cf-announce-tier1-inner">
+              <p class="cf-announce-tier1-text">
+                We’re officially <strong>SOC 2 Type II Compliant</strong>
+                <a href="#" class="cf-announce-link">Learn more →</a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Tier 2 -->
+          <div class="cf-announce-tier2">
+            <div class="cf-announce-inner cf-announce-tier2-inner">
+              <div class="cf-announce-tier2-left">
+                <span class="cf-announce-gift" aria-hidden="true">
+                  <img
+                    src="assets/icons/lightning.svg"
+                    alt=""
+                    class="cf-announce-gift-icon"
+                  />
+                </span>
+                <span class="cf-announce-tier2-text">
+                  You’ve unlocked a referral bonus! Sign up today and you’ll
+                  receive a random credit bonus between $5 and $500.
+                </span>
+              </div>
+
+              <button class="cf-announce-tier2-cta" type="button">
+                Claim Your Bonus
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= NAVBAR ================= -->
+        <div class="cf-header" role="navigation" aria-label="Main">
+          <div class="cf-nav">
+            <!-- LEFT: LOGO -->
+            <div class="cf-nav-left">
+              <a href="/" class="cf-logo">
+                <img
+                  src="assets/logo/logo-corefinity.svg"
+                  alt="Corefinity"
+                  class="cf-logo-img"
+                />
               </a>
             </div>
-            <button
-              class="cf-header-nav-link"
-              type="button"
-              id="cf-nav-solutions"
-              role="menuitem"
-              aria-haspopup="true"
-              aria-expanded="false"
-              aria-controls="cf-mega-solutions"
-              data-cf-mega-toggle="solutions"
-            >
-              Solutions
-            </button>
-            <div
-              class="cf-mobile-panel"
-              data-cf-mobile-panel="solutions"
-              role="region"
-              aria-labelledby="cf-nav-solutions"
-              hidden
-            >
-              <a
-                class="cf-mobile-link"
-                href="solutions-magento.html"
-                role="menuitem"
-              >
-                Magento hosting
-              </a>
-              <a class="cf-mobile-link" href="#solutions-laravel" role="menuitem">
-                Laravel &amp; PHP clouds
-              </a>
-              <a
-                class="cf-mobile-link"
-                href="#solutions-wordpress"
-                role="menuitem"
-              >
-                WordPress &amp; WooCommerce
-              </a>
+
+            <!-- CENTER: FLOATING PILL -->
+            <div class="cf-nav-center">
+              <nav class="cf-nav-pill" aria-label="Primary">
+                <!-- PRODUCT (MEGA) -->
+                <div class="cf-nav-item-wrap">
+                  <button
+                    class="cf-nav-trigger"
+                    type="button"
+                    data-menu="product"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <span class="cf-nav-label">Product</span>
+                    <span class="cf-nav-arrow" aria-hidden="true"></span>
+                  </button>
+                </div>
+
+                <!-- USE CASES (MEGA) -->
+                <div class="cf-nav-item-wrap">
+                  <button
+                    class="cf-nav-trigger"
+                    type="button"
+                    data-menu="usecases"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <span class="cf-nav-label">Use Cases</span>
+                    <span class="cf-nav-arrow" aria-hidden="true"></span>
+                  </button>
+                </div>
+
+                <!-- RESOURCES (MEGA) -->
+                <div class="cf-nav-item-wrap">
+                  <button
+                    class="cf-nav-trigger"
+                    type="button"
+                    data-menu="resources"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <span class="cf-nav-label">Resources</span>
+                    <span class="cf-nav-arrow" aria-hidden="true"></span>
+                  </button>
+                </div>
+
+                <!-- COMPANY (MEGA) -->
+                <div class="cf-nav-item-wrap">
+                  <button
+                    class="cf-nav-trigger"
+                    type="button"
+                    data-menu="company"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <span class="cf-nav-label">Company</span>
+                    <span class="cf-nav-arrow" aria-hidden="true"></span>
+                  </button>
+                </div>
+
+                <!-- SIMPLE LINKS -->
+                <a href="#" class="cf-nav-item-simple">
+                  <span class="cf-nav-label">Docs</span>
+                </a>
+                <a href="#" class="cf-nav-item-simple">
+                  <span class="cf-nav-label">Pricing</span>
+                </a>
+              </nav>
             </div>
-            <button
-              class="cf-header-nav-link"
-              type="button"
-              id="cf-nav-partners"
-              role="menuitem"
-              aria-haspopup="true"
-              aria-expanded="false"
-              aria-controls="cf-mega-partners"
-              data-cf-mega-toggle="partners"
-            >
-              Partners
-            </button>
-            <div
-              class="cf-mobile-panel"
-              data-cf-mobile-panel="partners"
-              role="region"
-              aria-labelledby="cf-nav-partners"
-              hidden
-            >
-              <a class="cf-mobile-link" href="agency.html" role="menuitem">
-                Agency partner program
-              </a>
-              <a
-                class="cf-mobile-link"
-                href="#partners-technology"
-                role="menuitem"
-              >
-                Technology alliances
-              </a>
-              <a
-                class="cf-mobile-link"
-                href="#partners-benefits"
-                role="menuitem"
-              >
-                Partner benefits
-              </a>
+
+            <!-- RIGHT: SIGN IN / CONTACT / CTA -->
+            <div class="cf-nav-right">
+              <a href="#" class="cf-nav-link-ghost">Sign in</a>
+              <a href="#" class="cf-nav-link-ghost">Contact sales</a>
+              <button class="cf-nav-cta" type="button">Get Started</button>
             </div>
+
+            <!-- MOBILE TOGGLE -->
             <button
-              class="cf-header-nav-link"
+              class="cf-nav-toggle"
+              id="cf-nav-toggle"
               type="button"
-              id="cf-nav-resources"
-              role="menuitem"
-              aria-haspopup="true"
+              aria-label="Open navigation"
               aria-expanded="false"
-              aria-controls="cf-mega-resources"
-              data-cf-mega-toggle="resources"
             >
-              Resources
-            </button>
-            <div
-              class="cf-mobile-panel"
-              data-cf-mobile-panel="resources"
-              role="region"
-              aria-labelledby="cf-nav-resources"
-              hidden
-            >
-              <a class="cf-mobile-link" href="#resources-kb" role="menuitem">
-                Knowledge base
-              </a>
-              <a class="cf-mobile-link" href="#resources-docs" role="menuitem">
-                Docs &amp; guides
-              </a>
-              <a class="cf-mobile-link" href="#resources-status" role="menuitem">
-                Status page
-              </a>
-            </div>
-            <button
-              class="cf-header-nav-link"
-              type="button"
-              id="cf-nav-support"
-              role="menuitem"
-              aria-haspopup="true"
-              aria-expanded="false"
-              aria-controls="cf-mega-support"
-              data-cf-mega-toggle="support"
-            >
-              Support
-            </button>
-            <div
-              class="cf-mobile-panel"
-              data-cf-mobile-panel="support"
-              role="region"
-              aria-labelledby="cf-nav-support"
-              hidden
-            >
-              <a class="cf-mobile-link" href="#support-contact" role="menuitem">
-                24/7 support desk
-              </a>
-              <a
-                class="cf-mobile-link"
-                href="mailto:support@corefinity.example"
-                role="menuitem"
-              >
-                Email support
-              </a>
-              <a class="cf-mobile-link" href="#support-status" role="menuitem">
-                System status
-              </a>
-            </div>
-          </nav>
-          <div class="cf-header-actions">
-            <button class="cf-btn-header-ghost" type="button">
-              Log in
-            </button>
-            <button class="cf-btn-header-primary" type="button">
-              Get a Quote
+              <span class="cf-nav-toggle-line"></span>
+              <span class="cf-nav-toggle-line"></span>
             </button>
           </div>
-          <button
-            class="cf-header-toggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="cf-main-nav"
-            aria-label="Toggle navigation"
-            data-cf-mobile-toggle="main-nav"
-          >
-            <span class="cf-header-toggle-icon" aria-hidden="true"></span>
-          </button>
-        </div>
-      </div>
-    </header>
 
-    <div
-      class="cf-mega"
-      id="cf-mega-why"
-      data-cf-mega-panel="why"
-      role="menu"
-      aria-labelledby="cf-nav-why"
-    >
-      <div class="cf-mega-inner">
-        <div class="cf-mega-col">
-          <h3 class="cf-mega-heading">Why Corefinity</h3>
-          <a href="#why-corefinity" class="cf-mega-link" role="menuitem">
-            Why Corefinity overview
-          </a>
-          <a href="#why-performance" class="cf-mega-link" role="menuitem">
-            Performance &amp; SLAs
-          </a>
-          <a href="#why-security" class="cf-mega-link" role="menuitem">
-            Security &amp; compliance
-          </a>
-        </div>
-        <div class="cf-mega-col">
-          <h3 class="cf-mega-heading">Company</h3>
-          <a href="#company" class="cf-mega-link" role="menuitem">
-            About Corefinity
-          </a>
-          <a href="#careers" class="cf-mega-link" role="menuitem">
-            Careers &amp; culture
-          </a>
-          <a href="#certifications" class="cf-mega-link" role="menuitem">
-            Certifications
-          </a>
-        </div>
-        <div class="cf-mega-col cf-mega-col-media">
-          <p class="cf-mega-eyebrow text-sm">Trusted by digital-first teams</p>
-          <p class="cf-mega-copy">
-            Precision-architected infrastructure delivering compliance, resiliency,
-            and white-glove onboarding for ambitious brands.
-          </p>
-          <img
-            src="assets/img/mega-why-placeholder.jpg"
-            alt="Corefinity team reviewing architecture diagrams"
-            class="cf-mega-image"
-          />
-        </div>
-      </div>
-    </div>
+          <!-- ============ MEGA MENU PANELS (DESKTOP) ============ -->
+          <div class="cf-mega-container" aria-label="Primary mega menu">
+            <!-- PRODUCT PANEL -->
+            <section
+              class="cf-mega-panel"
+              data-menu-panel="product"
+              aria-label="Product menu"
+            >
+              <div class="cf-mega-inner">
+                <div class="cf-mega-col">
+                  <h4 class="cf-mega-heading">Features</h4>
+                  <a href="#" class="cf-mega-link">Inference</a>
+                  <a href="#" class="cf-mega-link">Fine-Tuning</a>
+                  <a href="#" class="cf-mega-link">Batch Jobs</a>
+                  <a href="#" class="cf-mega-link">Observability</a>
+                </div>
+                <div class="cf-mega-col">
+                  <h4 class="cf-mega-heading">Compute</h4>
+                  <a href="#" class="cf-mega-link">On-Demand Clusters</a>
+                  <a href="#" class="cf-mega-link">Autoscaling</a>
+                  <a href="#" class="cf-mega-link">Dedicated Nodes</a>
+                </div>
+                <aside class="cf-mega-highlight">
+                  <h3>Enterprise Hosting</h3>
+                  <p>
+                    Rock-solid infrastructure engineered for scale and
+                    reliability.
+                  </p>
+                </aside>
+              </div>
+            </section>
 
-    <div
-      class="cf-mega"
-      id="cf-mega-solutions"
-      data-cf-mega-panel="solutions"
-      role="menu"
-      aria-labelledby="cf-nav-solutions"
-    >
-      <div class="cf-mega-inner">
-        <div class="cf-mega-col">
-          <h3 class="cf-mega-heading">Platforms &amp; applications</h3>
-          <a href="solutions-magento.html" class="cf-mega-link" role="menuitem">
-            Magento managed hosting
-          </a>
-          <a href="#solutions-laravel" class="cf-mega-link" role="menuitem">
-            Laravel &amp; PHP workloads
-          </a>
-          <a href="#solutions-wordpress" class="cf-mega-link" role="menuitem">
-            WordPress &amp; WooCommerce
-          </a>
-        </div>
-        <div class="cf-mega-col">
-          <h3 class="cf-mega-heading">Enterprise clouds</h3>
-          <a href="#solutions-aws" class="cf-mega-link" role="menuitem">
-            AWS orchestrations
-          </a>
-          <a href="#solutions-azure" class="cf-mega-link" role="menuitem">
-            Azure landing zones
-          </a>
-          <a href="#solutions-gcp" class="cf-mega-link" role="menuitem">
-            GCP commerce fabric
-          </a>
-        </div>
-        <div class="cf-mega-col cf-mega-col-media">
-          <p class="cf-mega-eyebrow text-sm">Platform specialists</p>
-          <p class="cf-mega-copy">
-            Dedicated solution architects for each commerce stack ensure high
-            availability, ongoing tuning, and rapid incident response.
-          </p>
-          <img
-            src="assets/img/mega-solutions-placeholder.jpg"
-            alt="Diagram of platform options"
-            class="cf-mega-image"
-          />
-        </div>
-      </div>
-    </div>
+            <!-- USE CASES PANEL -->
+            <section
+              class="cf-mega-panel"
+              data-menu-panel="usecases"
+              aria-label="Use cases menu"
+            >
+              <div class="cf-mega-inner">
+                <div class="cf-mega-col">
+                  <h4 class="cf-mega-heading">eCommerce</h4>
+                  <a href="#" class="cf-mega-link">Magento Stores</a>
+                  <a href="#" class="cf-mega-link">WooCommerce Retail</a>
+                  <a href="#" class="cf-mega-link">High-Traffic Campaigns</a>
+                </div>
+                <div class="cf-mega-col">
+                  <h4 class="cf-mega-heading">Agencies</h4>
+                  <a href="#" class="cf-mega-link">Agency Partner Program</a>
+                  <a href="#" class="cf-mega-link">White-Label Hosting</a>
+                </div>
+                <aside class="cf-mega-highlight">
+                  <h3>Solutions for Growth</h3>
+                  <p>
+                    Purpose-built workflows for brands, agencies, and SaaS
+                    teams.
+                  </p>
+                </aside>
+              </div>
+            </section>
 
-    <div
-      class="cf-mega"
-      id="cf-mega-partners"
-      data-cf-mega-panel="partners"
-      role="menu"
-      aria-labelledby="cf-nav-partners"
-    >
-      <div class="cf-mega-inner">
-        <div class="cf-mega-col">
-          <h3 class="cf-mega-heading">Partner programs</h3>
-          <a href="agency.html" class="cf-mega-link" role="menuitem">
-            Agency partner program
-          </a>
-          <a href="#partners-technology" class="cf-mega-link" role="menuitem">
-            Technology partners
-          </a>
-        </div>
-        <div class="cf-mega-col">
-          <h3 class="cf-mega-heading">Partner benefits</h3>
-          <a href="#partners-revenue" class="cf-mega-link" role="menuitem">
-            Revenue share &amp; margins
-          </a>
-          <a href="#partners-onboarding" class="cf-mega-link" role="menuitem">
-            Dedicated onboarding desk
-          </a>
-          <a href="#partners-comarketing" class="cf-mega-link" role="menuitem">
-            Co-marketing kits
-          </a>
-        </div>
-        <div class="cf-mega-col cf-mega-col-media">
-          <p class="cf-mega-eyebrow text-sm">Scale together</p>
-          <p class="cf-mega-copy">
-            White-label tools, predictable billing, and executive support help
-            agencies expand services with confidence.
-          </p>
-          <img
-            src="assets/img/mega-partners-placeholder.jpg"
-            alt="Partners collaborating in an office"
-            class="cf-mega-image"
-          />
-        </div>
-      </div>
-    </div>
+            <!-- RESOURCES PANEL -->
+            <section
+              class="cf-mega-panel"
+              data-menu-panel="resources"
+              aria-label="Resources menu"
+            >
+              <div class="cf-mega-inner">
+                <div class="cf-mega-col">
+                  <h4 class="cf-mega-heading">Content</h4>
+                  <a href="#" class="cf-mega-link">Blog</a>
+                  <a href="#" class="cf-mega-link">Case Studies</a>
+                  <a href="#" class="cf-mega-link">Guides</a>
+                </div>
+                <div class="cf-mega-col">
+                  <h4 class="cf-mega-heading">Technical</h4>
+                  <a href="#" class="cf-mega-link">API Documentation</a>
+                  <a href="#" class="cf-mega-link">System Status</a>
+                  <a href="#" class="cf-mega-link">Support Center</a>
+                </div>
+                <aside class="cf-mega-highlight">
+                  <h3>Knowledge Hub</h3>
+                  <p>
+                    Everything you need to launch, monitor, and scale
+                    successfully.
+                  </p>
+                </aside>
+              </div>
+            </section>
 
-    <div
-      class="cf-mega"
-      id="cf-mega-resources"
-      data-cf-mega-panel="resources"
-      role="menu"
-      aria-labelledby="cf-nav-resources"
-    >
-      <div class="cf-mega-inner">
-        <div class="cf-mega-col">
-          <h3 class="cf-mega-heading">Knowledge base</h3>
-          <a href="#resources-kb" class="cf-mega-link" role="menuitem">
-            Product guides
-          </a>
-          <a href="#resources-docs" class="cf-mega-link" role="menuitem">
-            API documentation
-          </a>
-          <a href="#resources-webinars" class="cf-mega-link" role="menuitem">
-            Webinars &amp; events
-          </a>
+            <!-- COMPANY PANEL -->
+            <section
+              class="cf-mega-panel"
+              data-menu-panel="company"
+              aria-label="Company menu"
+            >
+              <div class="cf-mega-inner">
+                <div class="cf-mega-col">
+                  <h4 class="cf-mega-heading">Company</h4>
+                  <a href="#" class="cf-mega-link">About Us</a>
+                  <a href="#" class="cf-mega-link">Team</a>
+                  <a href="#" class="cf-mega-link">Careers</a>
+                </div>
+                <aside class="cf-mega-highlight">
+                  <h3>About Corefinity</h3>
+                  <p>Trusted managed hosting for modern digital businesses.</p>
+                </aside>
+              </div>
+            </section>
+          </div>
         </div>
-        <div class="cf-mega-col">
-          <h3 class="cf-mega-heading">Operational tools</h3>
-          <a href="#resources-status" class="cf-mega-link" role="menuitem">
-            Status page
-          </a>
-          <a href="#resources-support" class="cf-mega-link" role="menuitem">
-            Support portal
-          </a>
-          <a href="#resources-community" class="cf-mega-link" role="menuitem">
-            Community &amp; Slack
-          </a>
-        </div>
-        <div class="cf-mega-col cf-mega-col-media">
-          <p class="cf-mega-eyebrow text-sm">Always learning</p>
-          <p class="cf-mega-copy">
-            Best-practice playbooks and live status insights keep teams aligned
-            before, during, and after launches.
-          </p>
-          <img
-            src="assets/img/mega-resources-placeholder.jpg"
-            alt="Knowledge base illustration"
-            class="cf-mega-image"
-          />
-        </div>
-      </div>
-    </div>
 
-    <div
-      class="cf-mega"
-      id="cf-mega-support"
-      data-cf-mega-panel="support"
-      role="menu"
-      aria-labelledby="cf-nav-support"
-    >
-      <div class="cf-mega-inner">
-        <div class="cf-mega-col">
-          <h3 class="cf-mega-heading">Support desk</h3>
-          <a href="#support-contact" class="cf-mega-link" role="menuitem">
-            24/7 chat &amp; phone
-          </a>
-          <a href="#support-ticket" class="cf-mega-link" role="menuitem">
-            Open a ticket
-          </a>
-        </div>
-        <div class="cf-mega-col">
-          <h3 class="cf-mega-heading">Operations</h3>
-          <a href="#support-status" class="cf-mega-link" role="menuitem">
-            Service status
-          </a>
-          <a href="#support-migrations" class="cf-mega-link" role="menuitem">
-            Migration support
-          </a>
-          <a href="#support-escalation" class="cf-mega-link" role="menuitem">
-            Escalation path
-          </a>
-        </div>
-        <div class="cf-mega-col cf-mega-col-media">
-          <p class="cf-mega-eyebrow text-sm">Here for every release</p>
-          <p class="cf-mega-copy">
-            Get to humans fast with proactive runbooks, incident retros, and live
-            collaboration rooms.
-          </p>
-          <img
-            src="assets/img/mega-support-placeholder.jpg"
-            alt="Support specialist helping a customer"
-            class="cf-mega-image"
-          />
-        </div>
-      </div>
-    </div>
+        <!-- ============ MOBILE MENU DRAWER ============ -->
+        <div
+          class="cf-mobile-menu"
+          id="cf-mobile-menu"
+          aria-hidden="true"
+        >
+          <div class="cf-mobile-menu-inner">
+            <button
+              class="cf-mobile-close"
+              id="cf-mobile-close"
+              type="button"
+              aria-label="Close navigation"
+            >
+              ×
+            </button>
 
-    <main id="main-content" role="main" tabindex="-1">
-      <section class="cf-hero cf-hero--home" aria-labelledby="home-hero-title">
-        <div class="cf-container">
-          <div class="cf-hero-grid">
-            <div class="cf-hero-copy">
-              <p class="cf-eyebrow text-sm">Enterprise managed hosting</p>
-              <h1 id="home-hero-title">
-                Managed hosting built for modern commerce
-              </h1>
-              <p class="text-lg">
-                Deliver peak storefront performance with Corefinity's PCI-ready,
-                globally distributed managed cloud. We balance automation with
-                hands-on experts so every release ships fast and safe.
-              </p>
-              <div class="cf-hero-actions">
-                <a
-                  class="cf-btn-primary"
-                  href="solutions-magento.html"
-                  role="button"
-                >
-                  Explore solutions
-                </a>
-                <button class="cf-btn-secondary" type="button">
-                  Talk to an expert
+            <nav class="cf-mobile-nav" aria-label="Mobile main">
+              <div class="cf-mobile-group">
+                <h4>Product</h4>
+                <a href="#">Inference</a>
+                <a href="#">Fine-Tuning</a>
+                <a href="#">Batch Jobs</a>
+                <a href="#">Observability</a>
+              </div>
+              <div class="cf-mobile-group">
+                <h4>Use Cases</h4>
+                <a href="#">Magento Stores</a>
+                <a href="#">WooCommerce Retail</a>
+                <a href="#">Agencies</a>
+              </div>
+              <div class="cf-mobile-group">
+                <h4>Resources</h4>
+                <a href="#">Blog</a>
+                <a href="#">Case Studies</a>
+                <a href="#">API Docs</a>
+              </div>
+              <div class="cf-mobile-group">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Team</a>
+                <a href="#">Careers</a>
+              </div>
+
+              <div class="cf-mobile-actions">
+                <a href="#" class="cf-mobile-link">Sign in</a>
+                <a href="#" class="cf-mobile-link">Contact sales</a>
+                <button class="cf-mobile-cta" type="button">
+                  Get Started
                 </button>
               </div>
-              <div class="cf-hero-metrics" aria-label="Key hosting metrics">
-                <div class="cf-hero-metric">
-                  <span class="cf-hero-metric-value">99.99%</span>
-                  <span class="cf-hero-metric-label">Uptime SLA</span>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <!-- ================= END HEADER STACK ================= -->
+
+      <!-- ================= HERO + BRANDS ================= -->
+      <main class="cf-main">
+        <section class="cf-hero">
+          <div class="cf-hero-inner">
+            <!-- Left column: copy -->
+            <div class="cf-hero-left">
+              <h1 class="cf-hero-title">
+                Fully Managed Laravel Hosting
+              </h1>
+
+              <p class="cf-hero-subtitle">
+                Scale your Laravel applications with autoscaling, Redis and
+                Horizon integration, zero-downtime deploys, and UK-based
+                support so your teams keep shipping without firefighting
+                infrastructure. Corefinity keeps Laravel fast with tuned
+                PHP-FPM, Redis, Horizon, and Octane-ready stacks built for
+                ambitious commerce.
+              </p>
+
+              <form class="cf-hero-form" novalidate>
+                <div class="cf-hero-form-row">
+                  <input
+                    type="email"
+                    class="cf-hero-input"
+                    placeholder="What’s your work email?"
+                    aria-label="Enter your work email"
+                  />
+                  <button type="submit" class="cf-hero-cta">
+                    Chat to an expert
+                  </button>
                 </div>
-                <div class="cf-hero-metric">
-                  <span class="cf-hero-metric-value">18</span>
-                  <span class="cf-hero-metric-label">Global PoPs</span>
-                </div>
-                <div class="cf-hero-metric">
-                  <span class="cf-hero-metric-value">15 min</span>
-                  <span class="cf-hero-metric-label">Avg. response</span>
+                <p class="cf-hero-meta-note">
+                  No credit card required · Free migration for qualifying stacks
+                </p>
+              </form>
+            </div>
+
+            <!-- Right column: holographic orb video -->
+            <div class="cf-hero-right">
+              <div class="cf-hero-orb-frame">
+                <div class="cf-hero-orb-glow"></div>
+                <div class="cf-hero-orb-holo" id="cf-hero-orb">
+                  <div class="cf-hero-orb-particles" aria-hidden="true"></div>
+                  <video
+                    class="cf-hero-orb-video"
+                    src="assets/hero/corefinity-orb.mp4"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                  ></video>
+                  <div class="cf-hero-orb-grid" aria-hidden="true"></div>
+                  <div class="cf-hero-orb-tint" aria-hidden="true"></div>
+                  <div class="cf-hero-orb-spec" aria-hidden="true"></div>
+                  <div class="cf-hero-orb-orbit" aria-hidden="true">
+                    <span class="cf-hero-orbit-dot"></span>
+                  </div>
+                  <div class="cf-hero-orb-ripple" aria-hidden="true"></div>
+                  <div class="cf-hero-orb-glass" aria-hidden="true"></div>
                 </div>
               </div>
             </div>
-            <div class="cf-hero-media">
-              <img
-                src="assets/img/hero-illustration-placeholder.svg"
-                alt="Abstract Corefinity infrastructure illustration"
-                class="cf-hero-image"
-              />
+          </div>
+        </section>
+
+        <!-- ================= BRAND SLIDER ================= -->
+        <section class="cf-partner-shield" aria-label="Cloud providers and supported platforms">
+          <div class="cf-partner-card">
+            <div class="cf-partner-intro">
+              <h3>Platform Overview</h3>
+              <p>
+                Corefinity’s platform is built for developers and businesses that
+                demand reliability, scalability, and speed. With an intuitive
+                dashboard you can manage environments, performance, and deployments
+                seamlessly, while 24/7 UK-based support means expert help is always
+                available.
+              </p>
+            </div>
+            <div class="cf-partner-row">
+              <div class="cf-partner-label">Cloud providers</div>
+              <div class="cf-partner-logos">
+                <img src="assets/providers/gcp-big.svg" alt="Google Cloud" />
+                <img src="assets/providers/aws-big.svg" alt="Amazon Web Services" />
+                <img src="assets/providers/azure-big.svg" alt="Microsoft Azure" />
+              </div>
+            </div>
+            <hr class="cf-partner-divider" aria-hidden="true" />
+            <div class="cf-partner-row">
+              <div class="cf-partner-label">Supported platforms</div>
+              <div class="cf-partner-logos">
+                <img src="assets/platforms/magento.svg" alt="Magento" />
+                <img src="assets/platforms/shopware.svg" alt="Shopware" />
+                <img src="assets/platforms/wordpress.svg" alt="WordPress" />
+                <img src="assets/platforms/oro.svg" alt="ORO Commerce" />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
 
-    <script src="assets/js/menu.js" defer></script>
+        <section class="cf-brands">
+          <p class="cf-brands-caption">
+            Trusted by modern commerce teams
+          </p>
+
+          <div class="cf-brands-marquee">
+            <div class="cf-brands-track">
+              <img src="assets/brands/Angling Direct.png" alt="Angling Direct" />
+              <img src="assets/brands/ribblecycles.png" alt="Ribble Cycles" />
+              <img src="assets/brands/TFL-logo.webp" alt="Transport for London" />
+              <img src="assets/brands/lcfc-logo.webp" alt="Leicester City FC" />
+              <img src="assets/brands/Mercedes SW.svg" alt="Mercedes SW" />
+              <img src="assets/brands/jml.svg" alt="JML" />
+              <img src="assets/brands/T.H. Baker.svg" alt="T.H. Baker" />
+              <img src="assets/brands/my1styears copy.svg" alt="My 1st Years" />
+              <img src="assets/brands/petertyson.svg" alt="Peter Tyson" />
+              <img src="assets/brands/ego.svg" alt="EGO" />
+            </div>
+          </div>
+        </section>
+
+        <section class="cf-key-features" aria-labelledby="cf-key-features-heading">
+          <div class="cf-key-features-inner">
+            <header class="cf-key-features-head">
+              <h2 id="cf-key-features-heading" class="cf-key-features-title">
+                Key features for serious commerce
+              </h2>
+              <p class="cf-key-features-intro">
+                Corefinity is engineered for demanding Magento, Laravel, and custom commerce workloads.
+                Every environment is tuned for performance, predictability, and safety during your busiest
+                trading periods.
+              </p>
+            </header>
+
+            <div class="cf-feature-hero">
+  <!-- BEGIN: Unified Performance + WebGL Slab -->
+  <div class="cf-performance-slab">
+    <!-- LEFT SIDE -->
+    <div class="cf-performance-slab-left">
+      <h2 class="cf-perf-title">Performance</h2>
+      <h3 class="cf-perf-subtitle">Commerce-grade page speeds</h3>
+
+      <p class="cf-perf-copy">
+        We tune caching, PHP workers, databases, and edge delivery specifically for your Magento,
+        Laravel, or custom commerce stack. The result is consistently fast responses across
+        the entire buying journey—even under peak campaign load.
+      </p>
+
+      <div class="cf-performance-metrics-head">
+        <p class="cf-fttb-heading">Realistic FTTB benchmarks</p>
+        <p class="cf-fttb-copy">
+          Typical first-time-to-byte targets for a well-optimised commerce store on Corefinity:
+        </p>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="cf-performance-slab-right">
+      <canvas id="cf-webgl-field"></canvas>
+
+      <div class="cf-fttb-pills" role="tablist" aria-label="First-time-to-byte benchmarks">
+        <button class="cf-fttb-pill is-active" data-variant="home">
+          <span class="cf-fttb-pill-label">Homepage</span>
+          <span class="cf-fttb-pill-metric">200ms</span>
+        </button>
+
+        <button class="cf-fttb-pill" data-variant="category">
+          <span class="cf-fttb-pill-label">Category</span>
+          <span class="cf-fttb-pill-metric">350ms</span>
+        </button>
+
+        <button class="cf-fttb-pill" data-variant="product">
+          <span class="cf-fttb-pill-label">Product</span>
+          <span class="cf-fttb-pill-metric">400ms</span>
+        </button>
+
+        <button class="cf-fttb-pill" data-variant="cart">
+          <span class="cf-fttb-pill-label">Cart</span>
+          <span class="cf-fttb-pill-metric">440ms</span>
+        </button>
+
+        <button class="cf-fttb-pill" data-variant="checkout">
+          <span class="cf-fttb-pill-label">Checkout</span>
+          <span class="cf-fttb-pill-metric">500ms</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- END: Unified Performance + WebGL Slab -->
+</div>
+
+            <div class="cf-key-features-grid">
+              <article class="cf-feature-card">
+                <div class="cf-feature-card-shell">
+                  <span class="cf-feature-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g stroke="var(--primary-blue-light)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 26h20" />
+                        <path d="M12 20h16" />
+                        <rect x="8" y="10" width="24" height="6" rx="2" />
+                        <path d="M20 30v-4" />
+                      </g>
+                    </svg>
+                  </span>
+                  <p class="cf-feature-card-overline">Automation</p>
+                  <h3 class="cf-feature-card-title">Predictive autoscaling</h3>
+                  <p class="cf-feature-card-body">
+                    Calendar-aware warm pools, queued PHP workers, and traffic anomaly dampening keep throughput
+                    steady when campaigns surge.
+                  </p>
+                </div>
+                <ul class="cf-feature-card-points">
+                  <li>Campaign-driven scaling windows</li>
+                  <li>Worker heatmaps per environment</li>
+                  <li>Hands-off capacity guardrails</li>
+                </ul>
+              </article>
+
+              <article class="cf-feature-card">
+                <div class="cf-feature-card-shell">
+                  <span class="cf-feature-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g stroke="var(--primary-blue-light)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="9" y="12" width="22" height="16" rx="3" />
+                        <path d="M9 20h22" />
+                        <path d="M15 28v2" />
+                        <path d="M25 28v2" />
+                        <path d="M17 16h.02" />
+                        <path d="M23 16h.02" />
+                      </g>
+                    </svg>
+                  </span>
+                  <p class="cf-feature-card-overline">Resilience</p>
+                  <h3 class="cf-feature-card-title">Isolation &amp; safety rails</h3>
+                  <p class="cf-feature-card-body">
+                    Dedicated VPCs, policy-backed backups, and deployment locks protect high-value releases without
+                    slowing the team.
+                  </p>
+                </div>
+                <ul class="cf-feature-card-points">
+                  <li>Ephemeral staging per branch</li>
+                  <li>One-click rollback rehearsals</li>
+                  <li>WAF + TLS baselines enforced</li>
+                </ul>
+              </article>
+
+              <article class="cf-feature-card">
+                <div class="cf-feature-card-shell">
+                  <span class="cf-feature-card-icon" aria-hidden="true">
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g stroke="var(--primary-blue-light)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 12h20v16H10z" />
+                        <path d="M14 16h12v8H14z" />
+                        <path d="M20 24v4" />
+                        <path d="M16 28h8" />
+                        <path d="M18 20h4" />
+                      </g>
+                    </svg>
+                  </span>
+                  <p class="cf-feature-card-overline">Visibility</p>
+                  <h3 class="cf-feature-card-title">Unified observability</h3>
+                  <p class="cf-feature-card-body">
+                    Queue health, Horizon, Redis, and PHP-FPM telemetry converge into a single lens with alerts tuned
+                    to storefront SLOs.
+                  </p>
+                </div>
+                <ul class="cf-feature-card-points">
+                  <li>Per-store latency envelopes</li>
+                  <li>Anomaly routing to Slack or Teams</li>
+                  <li>Full-trace export to your SIEM</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="cf-managed-hosting" aria-labelledby="cf-managed-title">
+          <div class="cf-managed-inner">
+            <header class="cf-managed-head">
+              <h2 class="cf-managed-title" id="cf-managed-title">
+                Managed hosting designed for performance, stability, and scale.
+              </h2>
+              <p class="cf-managed-intro">
+                Corefinity reduces the operational drag around high-traffic commerce workloads. We combine tuned
+                infrastructure, proactive monitoring, and hands-on support so your team can focus on shipping,
+                not firefighting.
+              </p>
+            </header>
+
+            <div class="cf-managed-grid">
+              <article class="cf-managed-block">
+                <div class="cf-managed-block-icon" aria-hidden="true">
+                  <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" role="presentation">
+                    <g fill="none" stroke="var(--primary-blue-light)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="20" cy="20" r="10" />
+                      <path d="M20 10V6" />
+                      <path d="M20 34v-4" />
+                      <path d="M30 20h4" />
+                      <path d="M6 20h4" />
+                      <path d="m26 14 2.5-2.5" />
+                      <path d="m14 26-2.5 2.5" />
+                    </g>
+                  </svg>
+                </div>
+                <h3 class="cf-managed-block-title">Performance-first architecture</h3>
+                <p class="cf-managed-block-body">
+                  Environments are tailored for PHP, Laravel, and Magento: right-sized PHP-FPM pools, Redis,
+                  queues, and databases that are tuned for real buying journeys instead of synthetic benchmarks.
+                </p>
+                <ul class="cf-managed-block-list">
+                  <li>Optimised PHP-FPM and worker configurations</li>
+                  <li>Redis and queues tuned for bursty traffic</li>
+                  <li>Horizon and Octane-ready stacks out of the box</li>
+                </ul>
+              </article>
+
+              <article class="cf-managed-block">
+                <div class="cf-managed-block-icon" aria-hidden="true">
+                  <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" role="presentation">
+                    <g fill="none" stroke="var(--primary-blue-light)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20 6 8 10v9.5c0 7.8 5.2 14.9 12 16.5 6.8-1.6 12-8.7 12-16.5V10Z" />
+                      <path d="m15 20 3 3 7-7" />
+                    </g>
+                  </svg>
+                </div>
+                <h3 class="cf-managed-block-title">Stability under real peak load</h3>
+                <p class="cf-managed-block-body">
+                  Campaigns, product drops, and seasonal peaks are planned events, not outages. Capacity,
+                  health checks, and fail-safes are aligned with your calendar, not just CPU graphs.
+                </p>
+                <ul class="cf-managed-block-list">
+                  <li>Capacity planning around trade and campaign calendars</li>
+                  <li>Safe deployment patterns for high-value releases</li>
+                  <li>Guardrails to prevent noisy neighbours and surprise slowdowns</li>
+                </ul>
+              </article>
+
+              <article class="cf-managed-block">
+                <div class="cf-managed-block-icon" aria-hidden="true">
+                  <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" role="presentation">
+                    <g fill="none" stroke="var(--primary-blue-light)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M10 28h20" />
+                      <path d="M13 24h14" />
+                      <path d="M20 12v12" />
+                      <path d="m15 17 5-5 5 5" />
+                    </g>
+                  </svg>
+                </div>
+                <h3 class="cf-managed-block-title">Built to scale with your roadmap</h3>
+                <p class="cf-managed-block-body">
+                  As teams, traffic, and channels grow, environments evolve with you. New regions, stores,
+                  and services can be added without re-platforming or re-architecting from scratch.
+                </p>
+                <ul class="cf-managed-block-list">
+                  <li>Environment patterns that scale from pilot to flagship</li>
+                  <li>Support for multi-storefront and multi-region setups</li>
+                  <li>Clear upgrade paths as traffic and complexity increase</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </section>
+        <!-- ================= 24/7 SUPPORT SECTION ================= -->
+        <section class="cf-support" aria-labelledby="cf-support-title">
+          <div class="cf-support-inner">
+            <div class="cf-support-layout">
+              <!-- LEFT: COPY STACK -->
+              <div class="cf-support-copy">
+                <header class="cf-support-head">
+                  <h2 id="cf-support-title" class="cf-support-title">
+                    24/7 UK-based Support
+                  </h2>
+                  <p class="cf-support-intro">
+                    You speak with the engineers who run your platform—not a first-line call center. Support is available
+                    24/7 via Slack, phone, and ticket, and the same team stays with your account so context is never lost.
+                  </p>
+                </header>
+
+                <ul class="cf-support-list">
+                  <li class="cf-support-item">
+                    <span class="cf-support-item-icon">
+                      <img
+                        src="assets/icons/shield.svg"
+                        alt="Shield icon"
+                        class="cf-support-icon-img"
+                      />
+                    </span>
+                    <span class="cf-support-item-text">
+                      Direct access to senior engineers
+                    </span>
+                  </li>
+
+                  <li class="cf-support-item">
+                    <span class="cf-support-item-icon">
+                      <img
+                        src="assets/icons/clock.svg"
+                        alt="24/7 clock icon"
+                        class="cf-support-icon-img"
+                      />
+                    </span>
+                    <span class="cf-support-item-text">
+                      24/7 monitoring and incident response
+                    </span>
+                  </li>
+
+                  <li class="cf-support-item">
+                    <span class="cf-support-item-icon">
+                      <img
+                        src="assets/icons/id_badge.svg"
+                        alt="ID badge icon"
+                        class="cf-support-icon-img"
+                      />
+                    </span>
+                    <span class="cf-support-item-text">
+                      Named engineers assigned to your account
+                    </span>
+                  </li>
+
+                  <li class="cf-support-item">
+                    <span class="cf-support-item-icon">
+                      <img
+                        src="assets/icons/document_node.svg"
+                        alt="Document and nodes icon"
+                        class="cf-support-icon-img"
+                      />
+                    </span>
+                    <span class="cf-support-item-text">
+                      Post-incident reviews and documented runbooks
+                    </span>
+                  </li>
+                </ul>
+
+                <div class="cf-support-metric" aria-label="Average emergency response time">
+                  <div class="cf-support-metric-icon">
+                    <img
+                      src="assets/icons/stopwatch.svg"
+                      alt="Stopwatch icon"
+                      class="cf-support-icon-img"
+                    />
+                  </div>
+                  <div class="cf-support-metric-text">
+                    6 minute average emergency response time
+                  </div>
+                </div>
+              </div>
+
+              <!-- RIGHT: VIDEO CARD -->
+              <div class="cf-support-visual" aria-hidden="true">
+                <div class="cf-support-video-card">
+                  <div class="cf-support-video-glow"></div>
+                  <video
+                    class="cf-support-video"
+                    src="assets/video/support-hud.mp4"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="auto"
+                  ></video>
+                  <div class="cf-support-video-tint"></div>
+                  <div class="cf-support-video-border"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- =============== END 24/7 SUPPORT SECTION =============== -->
+
+
+      </main>
+    </div>
+
+    <script src="js/header.js"></script>
+    <script src="js/webgl-engine.js"></script>
   </body>
 </html>
-
-
