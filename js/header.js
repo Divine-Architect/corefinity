@@ -417,8 +417,24 @@
     });
   }
 
+  function handleVisibility() {
+    const hidden = document.visibilityState === 'hidden';
+    rowsContainer?.classList.toggle('is-paused', hidden);
+    if (hidden) {
+      stopAutoplay();
+    } else {
+      if (!userInteracted) {
+        startAutoplay();
+      }
+      setActive(activeVariant);
+    }
+  }
+
+  document.addEventListener('visibilitychange', handleVisibility);
+
   setActive(activeVariant);
   startAutoplay();
+  handleVisibility();
 })();
 
 // ===================================================================
@@ -468,4 +484,9 @@
 
   refresh();
   window.addEventListener('resize', debounce(refresh, 250));
+  document.addEventListener('visibilitychange', () => {
+    const hidden = document.visibilityState === 'hidden';
+    track.classList.toggle('is-paused', hidden);
+  });
+  track.classList.toggle('is-paused', document.visibilityState === 'hidden');
 })();
