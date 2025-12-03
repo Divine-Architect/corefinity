@@ -158,19 +158,36 @@
   const orb = document.getElementById('cf-hero-orb');
   if (!orb) return;
 
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) return;
-
   const ripple = orb.querySelector('.cf-hero-orb-ripple');
+  const heroVideo = orb.querySelector('.cf-hero-orb-video');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const smallScreen = window.matchMedia('(max-width: 960px)');
 
-  const state = {
+  const motionState = {
     raf: null,
     x: 0.5,
     y: 0.5,
   };
 
+  const shouldUseStatic = () => prefersReducedMotion.matches || smallScreen.matches;
+
   function clamp(value, min, max) {
     return Math.min(Math.max(value, min), max);
+  }
+
+  function canInteract() {
+    return orb.dataset.motion !== 'static';
+  }
+
+  function pauseHeroVideo() {
+    if (heroVideo) {
+      heroVideo.pause();
+    }
+  }
+
+  function playHeroVideo() {
+    if (!heroVideo || shouldUseStatic() || document.visibilityState === 'hidden') return;
+    heroVideo.play().catch(() => {});
   }
 
   function applyProps(x, y) {
@@ -190,24 +207,24 @@
   }
 
   function scheduleUpdate(x, y) {
-    state.x = x;
-    state.y = y;
-    if (state.raf) return;
-    state.raf = requestAnimationFrame(() => {
-      applyProps(state.x, state.y);
-      state.raf = null;
+    motionState.x = x;
+    motionState.y = y;
+    if (motionState.raf) return;
+    motionState.raf = requestAnimationFrame(() => {
+      applyProps(motionState.x, motionState.y);
+      motionState.raf = null;
     });
   }
 
   function triggerRipple() {
-    if (!ripple) return;
+    if (!ripple || !canInteract()) return;
     ripple.classList.remove('is-rippling');
-    // force reflow to restart animation
     void ripple.offsetWidth;
     ripple.classList.add('is-rippling');
   }
 
   function handlePointer(event) {
+    if (!canInteract()) return;
     const rect = orb.getBoundingClientRect();
     const posX = clamp((event.clientX - rect.left) / rect.width, 0, 1);
     const posY = clamp((event.clientY - rect.top) / rect.height, 0, 1);
@@ -221,16 +238,41 @@
     }
   }
 
+  function updateMotionState() {
+    if (shouldUseStatic()) {
+      orb.dataset.motion = 'static';
+      pauseHeroVideo();
+    } else {
+      orb.dataset.motion = 'animated';
+      playHeroVideo();
+    }
+  }
+
+  prefersReducedMotion.addEventListener('change', updateMotionState);
+  smallScreen.addEventListener('change', updateMotionState);
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') {
+      pauseHeroVideo();
+    } else {
+      playHeroVideo();
+    }
+  });
+
+  updateMotionState();
+
   orb.addEventListener('pointerenter', event => {
+    if (!canInteract()) return;
     orb.classList.add('is-interacting');
     handlePointer(event);
     triggerRipple();
   });
   orb.addEventListener('pointermove', event => {
+    if (!canInteract()) return;
     orb.classList.add('is-interacting');
     handlePointer(event);
   });
   orb.addEventListener('pointerdown', event => {
+    if (!canInteract()) return;
     orb.classList.add('is-interacting');
     handlePointer(event);
     triggerRipple();
@@ -238,9 +280,145 @@
   orb.addEventListener('pointerleave', resetOrb);
   window.addEventListener('blur', resetOrb);
 
-  // Initialize defaults
-  applyProps(state.x, state.y);
-  orb.classList.add('is-interacting');
+  applyProps(motionState.x, motionState.y);
+})();
+
+// ===================================================================
+// Support video motion gating
+// ===================================================================
+(function () {
+  const frame = document.querySelector('.cf-support-video-frame');
+  if (!frame) return;
+
+  const supportVideo = frame.querySelector('.cf-support-video');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const compactView = window.matchMedia('(max-width: 900px)');
+
+  const shouldUseStatic = () => prefersReducedMotion.matches || compactView.matches;
+
+  function updateState() {
+    const useStatic = shouldUseStatic();
+    frame.dataset.motion = useStatic ? 'static' : 'animated';
+
+    if (!supportVideo) return;
+
+    if (useStatic || document.visibilityState === 'hidden') {
+      supportVideo.pause();
+    } else {
+      supportVideo.play().catch(() => {});
+    }
+  }
+
+  prefersReducedMotion.addEventListener('change', updateState);
+  compactView.addEventListener('change', updateState);
+  document.addEventListener('visibilitychange', updateState);
+
+  updateState();
+})();
+
+// ===================================================================
+// Neon benchmark pill interactions
+// ===================================================================
+(function () {
+  const rows = Array.from(document.querySelectorAll('.cf-fttb-row'));
+  if (!rows.length) return;
+
+  const rowsContainer = document.querySelector('.cf-fttb-rows');
+  const pills = rows
+    .map(row => row.querySelector('.cf-fttb-pill'))
+    .filter(Boolean);
+  const variants = rows.map(row => row.dataset.variant).filter(Boolean);
+  if (!variants.length) return;
+
+  let activeVariant = variants[0];
+  let autoplayId = null;
+  let userInteracted = false;
+
+  function restartSegments(row) {
+    const targets = [
+      row.querySelector('.cf-fttb-bar-fill'),
+      row.querySelector('.cf-fttb-bar-dot'),
+    ];
+
+    targets.forEach(el => {
+      if (!el) return;
+      el.classList.remove('is-animating');
+      // force reflow to restart keyframe
+      void el.offsetWidth;
+      el.classList.add('is-animating');
+    });
+  }
+
+  function tickMetric(row) {
+    const metric = row.querySelector('.cf-fttb-pill-metric');
+    if (!metric) return;
+    metric.classList.remove('is-ticking');
+    void metric.offsetWidth;
+    metric.classList.add('is-ticking');
+  }
+
+  function setActive(variant) {
+    if (!variant) return;
+    activeVariant = variant;
+
+    rows.forEach(row => {
+      const isActive = row.dataset.variant === variant;
+      row.classList.toggle('is-active', isActive);
+
+      const pill = row.querySelector('.cf-fttb-pill');
+      if (pill) {
+        pill.classList.toggle('is-active', isActive);
+        pill.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      }
+
+      if (isActive) {
+        restartSegments(row);
+        tickMetric(row);
+      }
+    });
+  }
+
+  function stopAutoplay() {
+    if (autoplayId) {
+      clearInterval(autoplayId);
+      autoplayId = null;
+    }
+  }
+
+  function startAutoplay() {
+    if (variants.length <= 1) return;
+    stopAutoplay();
+    autoplayId = setInterval(() => {
+      const current = variants.indexOf(activeVariant);
+      const next = variants[(current + 1) % variants.length];
+      setActive(next);
+    }, 5200);
+  }
+
+  const activateVariant = variant => {
+    userInteracted = true;
+    stopAutoplay();
+    setActive(variant);
+  };
+
+  pills.forEach(pill => {
+    const variant = pill.dataset.variant;
+    if (!variant) return;
+
+    pill.addEventListener('click', () => activateVariant(variant));
+    pill.addEventListener('mouseenter', () => activateVariant(variant));
+    pill.addEventListener('focus', () => activateVariant(variant));
+  });
+
+  if (rowsContainer) {
+    rowsContainer.addEventListener('mouseleave', () => {
+      if (userInteracted) return;
+      startAutoplay();
+    });
+  }
+
+  setActive(activeVariant);
+  startAutoplay();
 })();
 
 // ===================================================================

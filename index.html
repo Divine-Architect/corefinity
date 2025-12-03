@@ -1,4 +1,4 @@
-All <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -359,9 +359,9 @@ All <!DOCTYPE html>
             <!-- Right column: holographic orb video -->
             <div class="cf-hero-right">
               <div class="cf-hero-orb-frame">
-                <div class="cf-hero-orb-glow"></div>
-                <div class="cf-hero-orb-holo" id="cf-hero-orb">
-                  <div class="cf-hero-orb-particles" aria-hidden="true"></div>
+              <div class="cf-hero-orb-glow"></div>
+              <div class="cf-hero-orb-holo" id="cf-hero-orb" data-motion="animated">
+                <div class="cf-hero-orb-media">
                   <video
                     class="cf-hero-orb-video"
                     src="assets/hero/corefinity-orb.mp4"
@@ -369,16 +369,21 @@ All <!DOCTYPE html>
                     muted
                     loop
                     playsinline
+                    preload="none"
+                    poster="assets/hero/corefinity-orb.png"
                   ></video>
-                  <div class="cf-hero-orb-grid" aria-hidden="true"></div>
-                  <div class="cf-hero-orb-tint" aria-hidden="true"></div>
-                  <div class="cf-hero-orb-spec" aria-hidden="true"></div>
-                  <div class="cf-hero-orb-orbit" aria-hidden="true">
-                    <span class="cf-hero-orbit-dot"></span>
-                  </div>
-                  <div class="cf-hero-orb-ripple" aria-hidden="true"></div>
-                  <div class="cf-hero-orb-glass" aria-hidden="true"></div>
+                  <img
+                    src="assets/hero/corefinity-orb.png"
+                    alt="Corefinity holographic compute core"
+                    class="cf-hero-orb-fallback"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
+                <div class="cf-hero-orb-grid" aria-hidden="true"></div>
+                <div class="cf-hero-orb-ripple" aria-hidden="true"></div>
+                <div class="cf-hero-orb-glass" aria-hidden="true"></div>
+              </div>
               </div>
             </div>
           </div>
@@ -476,33 +481,91 @@ All <!DOCTYPE html>
 
     <!-- RIGHT SIDE -->
     <div class="cf-performance-slab-right">
-      <canvas id="cf-webgl-field"></canvas>
+      <div class="cf-fttb-rows" role="tablist" aria-label="First-time-to-byte benchmarks">
+        <div
+          class="cf-fttb-row is-active"
+          data-variant="home"
+          style="--fttb-duration:0.6s; --fttb-color:0,148,230;"
+        >
+          <button class="cf-fttb-pill" type="button" data-variant="home" aria-selected="true">
+            <span class="cf-fttb-pill-label">Homepage</span>
+            <span class="cf-fttb-pill-metric">200ms</span>
+          </button>
+          <div class="cf-fttb-bar" aria-hidden="true">
+            <span class="cf-fttb-bar-track"></span>
+            <span class="cf-fttb-bar-fill is-animating"></span>
+            <span class="cf-fttb-bar-glow"></span>
+            <span class="cf-fttb-bar-dot is-animating"></span>
+          </div>
+        </div>
 
-      <div class="cf-fttb-pills" role="tablist" aria-label="First-time-to-byte benchmarks">
-        <button class="cf-fttb-pill is-active" data-variant="home">
-          <span class="cf-fttb-pill-label">Homepage</span>
-          <span class="cf-fttb-pill-metric">200ms</span>
-        </button>
+        <div
+          class="cf-fttb-row"
+          data-variant="category"
+          style="--fttb-duration:0.9s; --fttb-color:54,183,255;"
+        >
+          <button class="cf-fttb-pill" type="button" data-variant="category" aria-selected="false">
+            <span class="cf-fttb-pill-label">Category</span>
+            <span class="cf-fttb-pill-metric">350ms</span>
+          </button>
+          <div class="cf-fttb-bar" aria-hidden="true">
+            <span class="cf-fttb-bar-track"></span>
+            <span class="cf-fttb-bar-fill"></span>
+            <span class="cf-fttb-bar-glow"></span>
+            <span class="cf-fttb-bar-dot"></span>
+          </div>
+        </div>
 
-        <button class="cf-fttb-pill" data-variant="category">
-          <span class="cf-fttb-pill-label">Category</span>
-          <span class="cf-fttb-pill-metric">350ms</span>
-        </button>
+        <div
+          class="cf-fttb-row"
+          data-variant="product"
+          style="--fttb-duration:1.2s; --fttb-color:255,138,90;"
+        >
+          <button class="cf-fttb-pill" type="button" data-variant="product" aria-selected="false">
+            <span class="cf-fttb-pill-label">Product</span>
+            <span class="cf-fttb-pill-metric">400ms</span>
+          </button>
+          <div class="cf-fttb-bar" aria-hidden="true">
+            <span class="cf-fttb-bar-track"></span>
+            <span class="cf-fttb-bar-fill"></span>
+            <span class="cf-fttb-bar-glow"></span>
+            <span class="cf-fttb-bar-dot"></span>
+          </div>
+        </div>
 
-        <button class="cf-fttb-pill" data-variant="product">
-          <span class="cf-fttb-pill-label">Product</span>
-          <span class="cf-fttb-pill-metric">400ms</span>
-        </button>
+        <div
+          class="cf-fttb-row"
+          data-variant="cart"
+          style="--fttb-duration:1.5s; --fttb-color:255,107,53;"
+        >
+          <button class="cf-fttb-pill" type="button" data-variant="cart" aria-selected="false">
+            <span class="cf-fttb-pill-label">Cart</span>
+            <span class="cf-fttb-pill-metric">440ms</span>
+          </button>
+          <div class="cf-fttb-bar" aria-hidden="true">
+            <span class="cf-fttb-bar-track"></span>
+            <span class="cf-fttb-bar-fill"></span>
+            <span class="cf-fttb-bar-glow"></span>
+            <span class="cf-fttb-bar-dot"></span>
+          </div>
+        </div>
 
-        <button class="cf-fttb-pill" data-variant="cart">
-          <span class="cf-fttb-pill-label">Cart</span>
-          <span class="cf-fttb-pill-metric">440ms</span>
-        </button>
-
-        <button class="cf-fttb-pill" data-variant="checkout">
-          <span class="cf-fttb-pill-label">Checkout</span>
-          <span class="cf-fttb-pill-metric">500ms</span>
-        </button>
+        <div
+          class="cf-fttb-row"
+          data-variant="checkout"
+          style="--fttb-duration:1.9s; --fttb-color:99,252,217;"
+        >
+          <button class="cf-fttb-pill" type="button" data-variant="checkout" aria-selected="false">
+            <span class="cf-fttb-pill-label">Checkout</span>
+            <span class="cf-fttb-pill-metric">500ms</span>
+          </button>
+          <div class="cf-fttb-bar" aria-hidden="true">
+            <span class="cf-fttb-bar-track"></span>
+            <span class="cf-fttb-bar-fill"></span>
+            <span class="cf-fttb-bar-glow"></span>
+            <span class="cf-fttb-bar-dot"></span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -768,15 +831,25 @@ All <!DOCTYPE html>
               <div class="cf-support-visual" aria-hidden="true">
                 <div class="cf-support-video-card">
                   <div class="cf-support-video-glow"></div>
-                  <video
-                    class="cf-support-video"
-                    src="assets/video/support-hud.mp4"
-                    autoplay
-                    muted
-                    loop
-                    playsinline
-                    preload="auto"
-                  ></video>
+                  <div class="cf-support-video-frame" data-motion="animated">
+                    <video
+                      class="cf-support-video"
+                      src="assets/video/support-hud.mp4"
+                      autoplay
+                      muted
+                      loop
+                      playsinline
+                      preload="none"
+                      poster="assets/video/support-hud.png"
+                    ></video>
+                    <img
+                      src="assets/video/support-hud.png"
+                      alt="Corefinity support interface"
+                      class="cf-support-video-fallback"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
                   <div class="cf-support-video-tint"></div>
                   <div class="cf-support-video-border"></div>
                 </div>
@@ -791,6 +864,5 @@ All <!DOCTYPE html>
     </div>
 
     <script src="js/header.js"></script>
-    <script src="js/webgl-engine.js"></script>
   </body>
 </html>
