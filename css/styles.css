@@ -992,100 +992,43 @@ body.cf-no-scroll {
   justify-content: center;
 }
 
-.cf-hero-orb-glow {
-  position: absolute;
-  inset: 18%;
-  border-radius: 999px;
-  background: radial-gradient(
-    circle,
-    rgba(0, 251, 255, 0.45),
-    rgba(0, 0, 0, 0)
-  );
-  filter: blur(18px);
-  opacity: 0.7;
-  z-index: -1;
-}
-
-/* Holographic frame + overlays */
-
 .cf-hero-orb-holo {
   position: relative;
   width: 100%;
   height: 100%;
   border-radius: 24px;
-  padding: 1.5px; /* 1–2px holographic border */
+  padding: 2px; /* holographic border */
   background: linear-gradient(
     120deg,
-    rgba(54, 183, 255, 0.85),
+    rgba(54, 183, 255, 0.8),
     rgba(0, 251, 255, 0.25),
     rgba(0, 148, 230, 0.8)
   );
-  background-size: 220% 220%;
-  animation:
-    cf-holo-shimmer 12s linear infinite,
-    orb-float 12s ease-in-out infinite;
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.9);
   overflow: hidden;
-  --orb-mouse-x: 0.5;
-  --orb-mouse-y: 0.5;
-  --orb-angle: 0deg;
-  --orb-distance: 0;
-  --orb-intensity: 0.45;
-  --orb-orbit-speed: 14s;
-}
-
-.cf-hero-orb-holo::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1.5px;
-  background:
-    conic-gradient(
-      from 90deg,
-      rgba(91, 203, 255, 0.7),
-      rgba(0, 148, 230, 0.1),
-      rgba(91, 203, 255, 0.7)
-    );
-  mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  animation: cf-orb-ring 14s linear infinite;
-  pointer-events: none;
-  mix-blend-mode: screen;
 }
 
 .cf-hero-orb-media {
-  position: relative;
   width: 100%;
   height: 100%;
   border-radius: 22px;
   overflow: hidden;
 }
 
-.cf-hero-orb-video,
-.cf-hero-orb-fallback {
+.cf-hero-orb-video {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 22px;
-  display: block;
-}
-
-.cf-hero-orb-fallback {
-  display: none;
 }
 
 .cf-hero-orb-grid,
-.cf-hero-orb-ripple,
-.cf-hero-orb-glass {
+.cf-hero-orb-highlight {
   position: absolute;
   inset: 1.5px;
   border-radius: 22px;
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.35s ease;
   mix-blend-mode: screen;
 }
 
@@ -1094,155 +1037,33 @@ body.cf-no-scroll {
     linear-gradient(to right, rgba(198, 212, 225, 0.08) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(150, 170, 190, 0.05) 1px, transparent 1px);
   background-size: 22px 22px;
-  transform:
-    translate3d(
-      calc((var(--orb-mouse-x, 0.5) - 0.5) * 14px),
-      calc((var(--orb-mouse-y, 0.5) - 0.5) * 14px),
-      0
+  opacity: 0.45;
+  z-index: 2;
+}
+
+.cf-hero-orb-highlight {
+  position: absolute;
+  inset: 1.5px;
+  border-radius: 22px;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(
+      circle at var(--cursor-x, 50%) var(--cursor-y, 50%),
+      rgba(54, 183, 255, 0.45),
+      transparent 55%
     );
+  transition: opacity 150ms ease-out;
   z-index: 3;
 }
 
-.cf-hero-orb-ripple {
-  border: 1px solid rgba(91, 203, 255, 0.55);
-  opacity: 0;
-  transform: scale(0.65);
-  will-change: transform, opacity;
-  z-index: 7;
-}
-
-.cf-hero-orb-ripple.is-rippling {
-  animation: cf-orb-ripple 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-  animation-fill-mode: forwards;
-}
-
-.cf-hero-orb-glass {
-  background:
-    radial-gradient(
-      circle at calc(var(--orb-mouse-x, 0.55) * 120%)
-        calc(var(--orb-mouse-y, 0.4) * 90%),
-      rgba(255, 255, 255, 0.25),
-      transparent 45%
-    ),
-    linear-gradient(
-      120deg,
-      rgba(255, 255, 255, 0.12),
-      rgba(0, 0, 0, 0.05),
-      transparent 60%
-    );
-  mix-blend-mode: screen;
-  opacity: calc(0.65 + var(--orb-distance, 0) * 0.35);
-  will-change: opacity, transform;
-  z-index: 8;
-}
-
-.cf-hero-orb-holo.is-interacting .cf-hero-orb-grid,
-.cf-hero-orb-holo.is-interacting .cf-hero-orb-glass {
+.cf-hero-orb-holo:hover .cf-hero-orb-highlight {
   opacity: 1;
 }
 
-/* Hover states: grid fade in together */
-
-.cf-hero-orb-holo:hover .cf-hero-orb-grid {
-  opacity: 1;
-}
-
-/* Orb video: centered in frame */
-
-.cf-hero-orb-video {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 22px;
-  object-fit: cover;
-  filter: saturate(1.05);
-  z-index: 1;
-}
-
-.cf-hero-orb-holo[data-motion='static'] .cf-hero-orb-video {
-  display: none;
-}
-
-.cf-hero-orb-holo[data-motion='static'] .cf-hero-orb-fallback {
-  display: block;
-}
-
-@media (max-width: 960px) {
-  .cf-hero-orb-video {
-    display: none;
-  }
-
-  .cf-hero-orb-fallback {
-    display: block;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .cf-hero-orb-video {
+  .cf-hero-orb-highlight {
     display: none;
-  }
-
-  .cf-hero-orb-fallback {
-    display: block;
-  }
-}
-
-/* Orb float + holographic shimmer */
-
-@keyframes orb-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes cf-holo-shimmer {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes cf-orb-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes cf-orb-ripple {
-  0% {
-    transform: scale(0.65);
-    opacity: 0.35;
-    border-color: rgba(91, 203, 255, 0.7);
-  }
-  80% {
-    opacity: 0.15;
-  }
-  100% {
-    transform: scale(1.2);
-    opacity: 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cf-hero-orb-holo,
-  .cf-hero-orb-holo::before,
-  .cf-hero-orb-grid {
-    animation: none !important;
-  }
-  .cf-hero-orb-holo {
-    transform: none !important;
   }
 }
 

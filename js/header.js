@@ -152,135 +152,30 @@
 })();
 
 // ===================================================================
-// Hero Orb Interaction Layer
+// Hero Orb – lightweight cursor highlight
 // ===================================================================
 (function () {
   const orb = document.getElementById('cf-hero-orb');
   if (!orb) return;
 
-  const ripple = orb.querySelector('.cf-hero-orb-ripple');
-  const heroVideo = orb.querySelector('.cf-hero-orb-video');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const smallScreen = window.matchMedia('(max-width: 960px)');
+  if (prefersReducedMotion.matches) return;
 
-  const motionState = {
-    raf: null,
-    x: 0.5,
-    y: 0.5,
-  };
-
-  const shouldUseStatic = () => prefersReducedMotion.matches || smallScreen.matches;
-
-  function clamp(value, min, max) {
-    return Math.min(Math.max(value, min), max);
-  }
-
-  function canInteract() {
-    return orb.dataset.motion !== 'static';
-  }
-
-  function pauseHeroVideo() {
-    if (heroVideo) {
-      heroVideo.pause();
-    }
-  }
-
-  function playHeroVideo() {
-    if (!heroVideo || shouldUseStatic() || document.visibilityState === 'hidden') return;
-    heroVideo.play().catch(() => {});
-  }
-
-  function applyProps(x, y) {
-    orb.style.setProperty('--orb-mouse-x', x.toFixed(3));
-    orb.style.setProperty('--orb-mouse-y', y.toFixed(3));
-
-    const angle =
-      (Math.atan2(y - 0.5, x - 0.5) * (180 / Math.PI) + 360) % 360;
-    const distance = clamp(Math.hypot(x - 0.5, y - 0.5) * 2, 0, 1);
-    const intensity = 0.35 + distance * 0.65;
-    const orbitSpeed = Math.max(6, 14 - distance * 6);
-
-    orb.style.setProperty('--orb-angle', `${angle.toFixed(2)}deg`);
-    orb.style.setProperty('--orb-distance', distance.toFixed(3));
-    orb.style.setProperty('--orb-intensity', intensity.toFixed(3));
-    orb.style.setProperty('--orb-orbit-speed', `${orbitSpeed.toFixed(2)}s`);
-  }
-
-  function scheduleUpdate(x, y) {
-    motionState.x = x;
-    motionState.y = y;
-    if (motionState.raf) return;
-    motionState.raf = requestAnimationFrame(() => {
-      applyProps(motionState.x, motionState.y);
-      motionState.raf = null;
-    });
-  }
-
-  function triggerRipple() {
-    if (!ripple || !canInteract()) return;
-    ripple.classList.remove('is-rippling');
-    void ripple.offsetWidth;
-    ripple.classList.add('is-rippling');
-  }
-
-  function handlePointer(event) {
-    if (!canInteract()) return;
+  function updateFromEvent(event) {
     const rect = orb.getBoundingClientRect();
-    const posX = clamp((event.clientX - rect.left) / rect.width, 0, 1);
-    const posY = clamp((event.clientY - rect.top) / rect.height, 0, 1);
-    scheduleUpdate(posX, posY);
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+    orb.style.setProperty('--cursor-x', `${x.toFixed(2)}%`);
+    orb.style.setProperty('--cursor-y', `${y.toFixed(2)}%`);
   }
 
-  function resetOrb() {
-    scheduleUpdate(0.5, 0.5);
-    if (ripple) {
-      ripple.classList.remove('is-rippling');
-    }
-  }
-
-  function updateMotionState() {
-    if (shouldUseStatic()) {
-      orb.dataset.motion = 'static';
-      pauseHeroVideo();
-    } else {
-      orb.dataset.motion = 'animated';
-      playHeroVideo();
-    }
-  }
-
-  prefersReducedMotion.addEventListener('change', updateMotionState);
-  smallScreen.addEventListener('change', updateMotionState);
-  document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'hidden') {
-      pauseHeroVideo();
-    } else {
-      playHeroVideo();
-    }
+  orb.addEventListener('pointerenter', updateFromEvent);
+  orb.addEventListener('pointermove', updateFromEvent);
+  orb.addEventListener('pointerleave', () => {
+    orb.style.removeProperty('--cursor-x');
+    orb.style.removeProperty('--cursor-y');
   });
-
-  updateMotionState();
-
-  orb.addEventListener('pointerenter', event => {
-    if (!canInteract()) return;
-    orb.classList.add('is-interacting');
-    handlePointer(event);
-    triggerRipple();
-  });
-  orb.addEventListener('pointermove', event => {
-    if (!canInteract()) return;
-    orb.classList.add('is-interacting');
-    handlePointer(event);
-  });
-  orb.addEventListener('pointerdown', event => {
-    if (!canInteract()) return;
-    orb.classList.add('is-interacting');
-    handlePointer(event);
-    triggerRipple();
-  });
-  orb.addEventListener('pointerleave', resetOrb);
-  window.addEventListener('blur', resetOrb);
-
-  applyProps(motionState.x, motionState.y);
 })();
 
 // ===================================================================
