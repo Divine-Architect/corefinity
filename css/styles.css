@@ -983,61 +983,76 @@ body.cf-no-scroll {
   justify-content: center;
 }
 
-.cf-hero-orb-frame {
+.cf-hero-geo {
   position: relative;
-  width: min(380px, 94vw);
-  aspect-ratio: 71 / 56; /* 426×336 */
+  width: min(320px, 80vw);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(91, 203, 255, 0.25), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(255, 107, 53, 0.18), transparent 60%),
+    linear-gradient(140deg, #05070a, #02040a 65%, #05070a);
   display: flex;
   align-items: center;
   justify-content: center;
+  transform:
+    translate3d(
+      calc((var(--cursor-x, 50%) - 50%) * 0.25),
+      calc((var(--cursor-y, 50%) - 50%) * 0.25),
+      0
+    );
+  transition: transform 160ms ease-out;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.85),
+    inset 0 0 40px rgba(0, 0, 0, 0.6);
 }
 
-.cf-hero-orb-holo {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 24px;
-  padding: 2px; /* holographic border */
-  background: linear-gradient(
-    120deg,
-    rgba(54, 183, 255, 0.8),
-    rgba(0, 251, 255, 0.25),
-    rgba(0, 148, 230, 0.8)
-  );
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.9);
-  overflow: hidden;
-}
-
-.cf-hero-orb-media {
-  width: 100%;
-  height: 100%;
-  border-radius: 22px;
-  overflow: hidden;
-}
-
-.cf-hero-orb-image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 22px;
-}
-
-.cf-hero-orb-grid {
+.cf-geo-core {
   position: absolute;
-  inset: 1.5px;
-  border-radius: 22px;
-  pointer-events: none;
-  mix-blend-mode: screen;
+  inset: 33%;
+  border-radius: 22%;
+  background: linear-gradient(135deg, #ff6b35, #ff8a5a);
+  box-shadow:
+    0 0 28px rgba(255, 107, 53, 0.8),
+    0 0 60px rgba(0, 0, 0, 0.9);
 }
 
-.cf-hero-orb-grid {
-  background-image:
-    linear-gradient(to right, rgba(198, 212, 225, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(150, 170, 190, 0.05) 1px, transparent 1px);
-  background-size: 22px 22px;
-  opacity: 0.45;
-  z-index: 2;
+.cf-geo-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(54, 183, 255, 0.5);
+  box-shadow: 0 0 18px rgba(54, 183, 255, 0.45);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.cf-geo-ring--outer {
+  inset: 4%;
+  border-color: rgba(54, 183, 255, 0.45);
+  transform: rotate(8deg);
+}
+
+.cf-geo-ring--middle {
+  inset: 12%;
+  border-color: rgba(99, 252, 217, 0.6);
+  transform: rotate(-6deg);
+}
+
+.cf-geo-ring--inner {
+  inset: 22%;
+  border-color: rgba(255, 255, 255, 0.55);
+  transform: rotate(3deg);
+}
+
+.cf-hero-geo:hover .cf-geo-ring--outer {
+  box-shadow: 0 0 24px rgba(54, 183, 255, 0.65);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cf-hero-geo {
+    transform: none !important;
+    transition: none;
+  }
 }
 
 /* ================= BRAND SLIDER ================= */
